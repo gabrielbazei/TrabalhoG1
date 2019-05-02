@@ -170,7 +170,6 @@ public class Interface extends javax.swing.JFrame {
         txtAreaRelato = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(350, 525));
 
         menuPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -1340,23 +1339,23 @@ public class Interface extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(menuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(menuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(servicos, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(servicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Atendimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Atendimentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Agenda, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Agenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(marcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(marcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(remarcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addComponent(relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1563,9 +1562,9 @@ public class Interface extends javax.swing.JFrame {
         menuPrincipal.setVisible(false);
         relatorios.setVisible(true);
     }//GEN-LAST:event_btnMenuRelatoriosActionPerformed
-    public static void FuncErroBanco(String erro){
+    /*public static void FuncErroBanco(String erro){
         lblVerificaBanco.setText(erro);
-    }
+    }*/
     /**
      * @param args the command line arguments
      */
@@ -1655,7 +1654,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel lblCadClienteCpf;
     private javax.swing.JLabel lblCadClienteEmail;
     private javax.swing.JLabel lblCadClienteEndereco;
-    private javax.swing.JLabel lblCadClienteErro;
+    public javax.swing.JLabel lblCadClienteErro;
     private javax.swing.JLabel lblCadClienteEstCivil;
     private javax.swing.JLabel lblCadClienteNasc;
     private javax.swing.JLabel lblCadClienteSituacao;
@@ -1675,7 +1674,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel lblDescAtendmiento;
     private javax.swing.JLabel lblDescServ;
     private javax.swing.JLabel lblErroRemarcar;
-    private javax.swing.JLabel lblErroServ;
+    public javax.swing.JLabel lblErroServ;
     private javax.swing.JLabel lblFuncMarcar;
     private javax.swing.JLabel lblFuncRemarcar;
     private javax.swing.JLabel lblFuncionariosAtendmiento;
@@ -1695,7 +1694,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel lblTituloMarcar;
     private javax.swing.JLabel lblTituloRemarcar;
     private javax.swing.JLabel lblTituloServico;
-    public static javax.swing.JLabel lblVerificaBanco;
+    private javax.swing.JLabel lblVerificaBanco;
     private javax.swing.JList listAgenda;
     private javax.swing.JList listFuncRemarcar;
     private javax.swing.JList<String> listFuncionariosDispo;

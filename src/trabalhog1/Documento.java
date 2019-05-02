@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import static trabalhog1.Interface.FuncErroBanco;
 
 public class Documento {
     Interface inter = new Interface();
@@ -37,7 +36,7 @@ public class Documento {
     }*/
     //Codigo n�o utilizado para gravar objetos 
     //----------------------------------------------------------
-    public static void gravarArquivo(ArrayList<Cliente> pessoa) {
+    /*public static void gravarArquivo(ArrayList<Cliente> pessoa) {
         File arq = new File("saida.dat");
         String errol = "Testando";
         try {
@@ -74,5 +73,5 @@ public class Documento {
         }
         FuncErroBanco(errol);
         return(lista);
-      }
+      }*/
 }
