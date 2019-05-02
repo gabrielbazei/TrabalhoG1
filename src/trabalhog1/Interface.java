@@ -138,6 +138,7 @@ public class Interface extends javax.swing.JFrame {
         lblHorarioMarcar = new javax.swing.JLabel();
         btnVerfMarcar = new javax.swing.JButton();
         lblFuncMarcar = new javax.swing.JLabel();
+        BtnMarcar2 = new javax.swing.JButton();
         remarcarhorario = new javax.swing.JPanel();
         lblTituloRemarcar = new javax.swing.JLabel();
         btnBackRemarcar = new javax.swing.JButton();
@@ -169,8 +170,8 @@ public class Interface extends javax.swing.JFrame {
         txtAreaRelato = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(350, 525));
 
-        menuPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         menuPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblMenuPrincipal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -252,7 +253,7 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(menuPrincipalLayout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(lblMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addComponent(lblVerificaBanco))
                     .addGroup(menuPrincipalLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
@@ -293,8 +294,6 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(btnMenuRelatorios)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        servicos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnBackServ.setText("Voltar");
         btnBackServ.setToolTipText("Voltar ao menu principal");
@@ -362,7 +361,7 @@ public class Interface extends javax.swing.JFrame {
                         .addGroup(servicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnCadastroServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblErroServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         servicosLayout.setVerticalGroup(
             servicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,8 +384,6 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(btnCadastroServico)
                 .addContainerGap())
         );
-
-        Clientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnBackCadCliente.setText("Voltar");
         btnBackCadCliente.setToolTipText("Voltar ao menu principal");
@@ -609,8 +606,6 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Funcionarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         btnBackCadFunc.setText("Voltar");
         btnBackCadFunc.setToolTipText("Voltar ao menu principal");
         btnBackCadFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -722,7 +717,7 @@ public class Interface extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(FuncionariosLayout.createSequentialGroup()
                                         .addComponent(btnDeleteFuncionario)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                                         .addComponent(btnConfDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnNegDelFunc))))))
@@ -764,8 +759,6 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(btnCadFunc)
                 .addContainerGap())
         );
-
-        Atendimentos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnBackAtendimentos.setText("Voltar");
         btnBackAtendimentos.setToolTipText("Voltar ao menu principal");
@@ -869,7 +862,7 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(AtendimentosLayout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(btnCadastroAtendimento)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         AtendimentosLayout.setVerticalGroup(
             AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -906,8 +899,6 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(btnCadastroAtendimento)
                 .addContainerGap())
         );
-
-        Agenda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblTituloAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTituloAgenda.setText("Agenda do dia");
@@ -946,6 +937,7 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(AgendaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelAgenda)
                     .addGroup(AgendaLayout.createSequentialGroup()
                         .addGroup(AgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AgendaLayout.createSequentialGroup()
@@ -959,8 +951,8 @@ public class Interface extends javax.swing.JFrame {
                             .addGroup(AgendaLayout.createSequentialGroup()
                                 .addGap(87, 87, 87)
                                 .addComponent(btnVerfAgenda)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(panelAgenda, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGap(0, 2, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         AgendaLayout.setVerticalGroup(
             AgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -978,12 +970,10 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(lblDataAgenda))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVerfAgenda)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-
-        marcarhorario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblTituloMarcar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTituloMarcar.setText("Marcar Horario");
@@ -1026,17 +1016,26 @@ public class Interface extends javax.swing.JFrame {
 
         lblFuncMarcar.setText("Funcionarios disponiveis");
 
+        BtnMarcar2.setText("Cadastrar/Verificar");
+
         javax.swing.GroupLayout marcarhorarioLayout = new javax.swing.GroupLayout(marcarhorario);
         marcarhorario.setLayout(marcarhorarioLayout);
         marcarhorarioLayout.setHorizontalGroup(
             marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(marcarhorarioLayout.createSequentialGroup()
                 .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(marcarhorarioLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, marcarhorarioLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelMarcar)
+                            .addComponent(panelMarcar, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                             .addGroup(marcarhorarioLayout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addComponent(lblFuncMarcar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(marcarhorarioLayout.createSequentialGroup()
+                        .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(marcarhorarioLayout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblHorarioMarcar)
                                     .addComponent(btnBackMarcar)
@@ -1049,16 +1048,15 @@ public class Interface extends javax.swing.JFrame {
                                             .addGroup(marcarhorarioLayout.createSequentialGroup()
                                                 .addComponent(lblDataMarcar)
                                                 .addGap(32, 32, 32)
-                                                .addComponent(txtDataMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(marcarhorarioLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(btnVerfMarcar)
+                                                .addComponent(txtDataMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(marcarhorarioLayout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addComponent(btnVerfMarcar)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(marcarhorarioLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(lblFuncMarcar)
+                .addGap(80, 80, 80)
+                .addComponent(BtnMarcar2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         marcarhorarioLayout.setVerticalGroup(
@@ -1078,14 +1076,14 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(lblHorarioMarcar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVerfMarcar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFuncMarcar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnMarcar2)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
-
-        remarcarhorario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblTituloRemarcar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTituloRemarcar.setText("Remarcar horario");
@@ -1171,10 +1169,10 @@ public class Interface extends javax.swing.JFrame {
                             .addGap(122, 122, 122))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, remarcarhorarioLayout.createSequentialGroup()
                             .addComponent(lblRemarcarNomeCliente)
-                            .addGap(32, 32, 32)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtRemarcarNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnVerfClienteRermarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnVerfClienteRermarcar))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(panelHorarioRemarcar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                             .addComponent(panelFuncRemarcar, javax.swing.GroupLayout.Alignment.LEADING)))
@@ -1193,9 +1191,9 @@ public class Interface extends javax.swing.JFrame {
                                         .addComponent(btnCadRemarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(remarcarhorarioLayout.createSequentialGroup()
                                         .addComponent(btnAltRemarcar)
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnConfAltRemarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnNegAltRemarcar)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1233,7 +1231,6 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        relatorios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         relatorios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblRelato.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1308,7 +1305,7 @@ public class Interface extends javax.swing.JFrame {
                                         .addComponent(btnAgendaRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnRelatoPorCleinte, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(lblRelato, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 15, Short.MAX_VALUE))
                     .addGroup(relatoriosLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(panelRelato)))
@@ -1343,41 +1340,41 @@ public class Interface extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Atendimentos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menuPrincipal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(menuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Agenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(servicos, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(marcarhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(remarcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Funcionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Atendimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(relatorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(Agenda, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(marcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(remarcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Funcionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Agenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(marcarhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(remarcarhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Atendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(remarcarhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Atendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Agenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(marcarhorario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1609,6 +1606,7 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Agenda;
     private javax.swing.JPanel Atendimentos;
+    private javax.swing.JButton BtnMarcar2;
     private javax.swing.JToggleButton BtnTglSituacao;
     private javax.swing.JPanel Clientes;
     private javax.swing.JPanel Funcionarios;
