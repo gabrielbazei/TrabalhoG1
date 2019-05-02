@@ -35,21 +35,17 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="Clientes" min="-2" pref="312" max="-2" attributes="0"/>
+                  <Component id="Clientes" min="-2" pref="299" max="-2" attributes="0"/>
                   <Component id="marcarhorario" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="Funcionarios" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="relatorios" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="remarcarhorario" min="-2" pref="323" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="341" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="remarcarhorario" min="-2" pref="327" max="-2" attributes="0"/>
+                  <Component id="Funcionarios" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="relatorios" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,18 +53,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="servicos" max="32767" attributes="0"/>
-                  <Component id="menuPrincipal" alignment="0" max="32767" attributes="0"/>
-                  <Component id="Funcionarios" alignment="0" max="32767" attributes="0"/>
-                  <Component id="Clientes" alignment="0" max="32767" attributes="0"/>
-                  <Component id="relatorios" alignment="1" max="32767" attributes="0"/>
+                  <Component id="relatorios" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="servicos" max="32767" attributes="0"/>
+                      <Component id="menuPrincipal" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Funcionarios" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Clientes" alignment="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Agenda" max="32767" attributes="0"/>
                   <Component id="marcarhorario" alignment="0" max="32767" attributes="0"/>
                   <Component id="remarcarhorario" max="32767" attributes="0"/>
-                  <Component id="Atendimentos" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="Atendimentos" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -132,7 +130,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnMenuFuncionario" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnMenuAtendimento" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMenuAtendimento" min="-2" pref="23" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnMenuAgenda" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -170,12 +168,18 @@
             <Property name="text" type="java.lang.String" value="Cadastro de clientes"/>
             <Property name="toolTipText" type="java.lang.String" value="Ir para o menu de cadastro de clientes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuClienteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnMenuFuncionario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastro dos funcionarios"/>
             <Property name="toolTipText" type="java.lang.String" value="Ir para o menu de cadastro de funcionarios"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuFuncionarioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnMenuAtendimento">
           <Properties>
@@ -200,23 +204,35 @@
             <Property name="text" type="java.lang.String" value="Marcar horarios"/>
             <Property name="toolTipText" type="java.lang.String" value="Ir para o menu para marcar horario"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuMarcarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnMenuRemarcar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Remarcar horarios"/>
             <Property name="toolTipText" type="java.lang.String" value="Ir para o menu para remarcar horaios"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuRemarcarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnMenuRelatorios">
           <Properties>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
             <Property name="toolTipText" type="java.lang.String" value="Ir para o menu para mostrar relat&#xf3;rios"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuRelatoriosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblVerificaBanco">
           <Properties>
             <Property name="text" type="java.lang.String" value="Desconetado"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -768,7 +784,7 @@
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="btnDeleteFuncionario" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="92" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Component id="btnConfDelFunc" min="-2" pref="51" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="btnNegDelFunc" min="-2" max="-2" attributes="0"/>

@@ -8,9 +8,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import static trabalhog1.Interface.FuncErroBanco;
 
 public class Documento {
-
+    Interface inter = new Interface();
     /*public static void Gravar(Cliente lista){
      try {
       FileOutputStream arquivoGrav = new FileOutputStream("saida.dat");
@@ -38,6 +39,7 @@ public class Documento {
     //----------------------------------------------------------
     public static void gravarArquivo(ArrayList<Cliente> pessoa) {
         File arq = new File("saida.dat");
+        String errol = "Testando";
         try {
           //arq.delete(); //Deleta o Arquivo existente
           //arq.createNewFile(); // Cria um novo arquivo
@@ -45,13 +47,16 @@ public class Documento {
           ObjectOutputStream objOutput = new ObjectOutputStream(new FileOutputStream(arq));
           objOutput.writeObject(pessoa);
           objOutput.close();
-      
+          errol= "sucesso";
         } catch(IOException erro) {
             System.out.printf("Erro: %s", erro.getMessage());
+            errol = "Erro: "+erro.getMessage();
         }
+        FuncErroBanco(errol);
       }
     
     public static ArrayList<Cliente> lerArquivo() {
+        String errol = "Testando";
         ArrayList<Cliente> lista = new ArrayList();
         try {
           File arq = new File("saida.dat");
@@ -62,10 +67,12 @@ public class Documento {
           }
         } catch(IOException erro1) {
             System.out.printf("Erro: %s", erro1.getMessage());
+            errol = erro1.getMessage();
         } catch(ClassNotFoundException erro2) {
             System.out.printf("Erro: %s", erro2.getMessage());
+            errol = erro2.getMessage();
         }
-      
+        FuncErroBanco(errol);
         return(lista);
       }
 }

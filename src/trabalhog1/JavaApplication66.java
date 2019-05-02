@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JavaApplication66 {
-    public static void main(String[] args){
+    /*public static void main(String[] args){
     ArrayList<Cliente> pessoa = new ArrayList<Cliente>();
     String sexo="",nome="",cpf="";
     Scanner ler = new Scanner(System.in);
@@ -25,7 +25,7 @@ public class JavaApplication66 {
     ArrayList<Cliente> Lei = Documento.lerArquivo();
     for (Cliente obj : Lei) {
         System.out.println (obj.nome + "," + obj.cpf + "," + obj.email);
-    }
+    }*/
     /*
   	M�todo antigo (at� JDK 1.4):
 		List lista = new ArrayList();
@@ -42,6 +42,6 @@ public class JavaApplication66 {
 		for (SuaClasse obj : lista) {
 		    System.out.println (obj.x1 + "," + obj.x2);
 		}
-	*/
-  }
+	
+  }*/
 }

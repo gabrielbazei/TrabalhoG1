@@ -16,7 +16,14 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-        
+        servicos.setVisible(false);
+        Clientes.setVisible(false);
+        Funcionarios.setVisible(false);
+        Atendimentos.setVisible(false);
+        Agenda.setVisible(false);
+        marcarhorario.setVisible(false);
+        remarcarhorario.setVisible(false);
+        relatorios.setVisible(false);
     }
 
     /**
@@ -180,9 +187,19 @@ public class Interface extends javax.swing.JFrame {
 
         btnMenuCliente.setText("Cadastro de clientes");
         btnMenuCliente.setToolTipText("Ir para o menu de cadastro de clientes");
+        btnMenuCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuClienteActionPerformed(evt);
+            }
+        });
 
         btnMenuFuncionario.setText("Cadastro dos funcionarios");
         btnMenuFuncionario.setToolTipText("Ir para o menu de cadastro de funcionarios");
+        btnMenuFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuFuncionarioActionPerformed(evt);
+            }
+        });
 
         btnMenuAtendimento.setText("Atendimentos");
         btnMenuAtendimento.setToolTipText("Ir para o menu de atendmientos");
@@ -202,12 +219,27 @@ public class Interface extends javax.swing.JFrame {
 
         btnMenuMarcar.setText("Marcar horarios");
         btnMenuMarcar.setToolTipText("Ir para o menu para marcar horario");
+        btnMenuMarcar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuMarcarActionPerformed(evt);
+            }
+        });
 
         btnMenuRemarcar.setText("Remarcar horarios");
         btnMenuRemarcar.setToolTipText("Ir para o menu para remarcar horaios");
+        btnMenuRemarcar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuRemarcarActionPerformed(evt);
+            }
+        });
 
         btnMenuRelatorios.setText("Relatórios");
         btnMenuRelatorios.setToolTipText("Ir para o menu para mostrar relatórios");
+        btnMenuRelatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuRelatoriosActionPerformed(evt);
+            }
+        });
 
         lblVerificaBanco.setText("Desconetado");
 
@@ -250,7 +282,7 @@ public class Interface extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMenuFuncionario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMenuAtendimento)
+                .addComponent(btnMenuAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMenuAgenda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -690,7 +722,7 @@ public class Interface extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(FuncionariosLayout.createSequentialGroup()
                                         .addComponent(btnDeleteFuncionario)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnConfDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnNegDelFunc))))))
@@ -1320,33 +1352,32 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(Agenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(marcarhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(remarcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 341, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(remarcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Funcionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(relatorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Funcionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(relatorios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Funcionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Agenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(marcarhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(remarcarhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Atendimentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Atendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1354,18 +1385,26 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnMenuAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuAtendimentoActionPerformed
         // TODO add your handling code here:
+        menuPrincipal.setVisible(false);
+        Atendimentos.setVisible(true);
     }//GEN-LAST:event_btnMenuAtendimentoActionPerformed
 
     private void btnMenuAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuAgendaActionPerformed
         // TODO add your handling code here:
+        menuPrincipal.setVisible(false);
+        Agenda.setVisible(true);
     }//GEN-LAST:event_btnMenuAgendaActionPerformed
 
     private void btnMenuServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuServicoActionPerformed
         // TODO add your handling code here:
+        menuPrincipal.setVisible(false);
+        servicos.setVisible(true);
     }//GEN-LAST:event_btnMenuServicoActionPerformed
 
     private void btnBackServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackServActionPerformed
         // TODO add your handling code here:
+        servicos.setVisible(false);
+        menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackServActionPerformed
 
     private void txtNomeServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeServActionPerformed
@@ -1374,6 +1413,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnBackCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackCadClienteActionPerformed
         // TODO add your handling code here:
+        Clientes.setVisible(false);
+        menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackCadClienteActionPerformed
 
     private void txtNomeCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCadastroClienteActionPerformed
@@ -1398,6 +1439,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnBackCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackCadFuncActionPerformed
         // TODO add your handling code here:
+        Funcionarios.setVisible(false);
+        menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackCadFuncActionPerformed
 
     private void txtCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCadFuncActionPerformed
@@ -1418,6 +1461,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnBackAtendimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackAtendimentosActionPerformed
         // TODO add your handling code here:
+        Atendimentos.setVisible(false);
+        menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackAtendimentosActionPerformed
 
     private void txtDataAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataAtendimentoActionPerformed
@@ -1430,6 +1475,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnBackAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackAgendaActionPerformed
         // TODO add your handling code here:
+        Agenda.setVisible(false);
+        menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackAgendaActionPerformed
 
     private void txtDataAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataAgendaActionPerformed
@@ -1438,6 +1485,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnBackMarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMarcarActionPerformed
         // TODO add your handling code here:
+        marcarhorario.setVisible(false);
+        menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackMarcarActionPerformed
 
     private void txtDataMarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataMarcarActionPerformed
@@ -1450,6 +1499,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnBackRemarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackRemarcarActionPerformed
         // TODO add your handling code here:
+        remarcarhorario.setVisible(false);
+        menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackRemarcarActionPerformed
 
     private void txtRemarcarNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRemarcarNomeClienteActionPerformed
@@ -1474,6 +1525,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnBackRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackRelatoActionPerformed
         // TODO add your handling code here:
+        relatorios.setVisible(false);
+        menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackRelatoActionPerformed
 
     private void btnFuncRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncRelatoActionPerformed
@@ -1484,6 +1537,38 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteClienteActionPerformed
 
+    private void btnMenuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuClienteActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.setVisible(false);
+        Clientes.setVisible(true);
+    }//GEN-LAST:event_btnMenuClienteActionPerformed
+
+    private void btnMenuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuFuncionarioActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.setVisible(false);
+        Funcionarios.setVisible(true);
+    }//GEN-LAST:event_btnMenuFuncionarioActionPerformed
+
+    private void btnMenuMarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuMarcarActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.setVisible(false);
+        marcarhorario.setVisible(true);
+    }//GEN-LAST:event_btnMenuMarcarActionPerformed
+
+    private void btnMenuRemarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuRemarcarActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.setVisible(false);
+        remarcarhorario.setVisible(true);
+    }//GEN-LAST:event_btnMenuRemarcarActionPerformed
+
+    private void btnMenuRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuRelatoriosActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.setVisible(false);
+        relatorios.setVisible(true);
+    }//GEN-LAST:event_btnMenuRelatoriosActionPerformed
+    public static void FuncErroBanco(String erro){
+        lblVerificaBanco.setText(erro);
+    }
     /**
      * @param args the command line arguments
      */
@@ -1518,6 +1603,7 @@ public class Interface extends javax.swing.JFrame {
                 new Interface().setVisible(true);
             }
         });
+        
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1611,7 +1697,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel lblTituloMarcar;
     private javax.swing.JLabel lblTituloRemarcar;
     private javax.swing.JLabel lblTituloServico;
-    private javax.swing.JLabel lblVerificaBanco;
+    public static javax.swing.JLabel lblVerificaBanco;
     private javax.swing.JList listAgenda;
     private javax.swing.JList listFuncRemarcar;
     private javax.swing.JList<String> listFuncionariosDispo;
