@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package trabalhog1;
+import java.util.ArrayList;
 import java.util.Date;
 /**
  *
@@ -16,6 +17,7 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
+        lblVerificaBanco.setVisible(false);
         servicos.setVisible(false);
         Clientes.setVisible(false);
         Funcionarios.setVisible(false);
@@ -56,6 +58,8 @@ public class Interface extends javax.swing.JFrame {
         lblNomeServ = new javax.swing.JLabel();
         lblDescServ = new javax.swing.JLabel();
         lblErroServ = new javax.swing.JLabel();
+        btnAltServ = new javax.swing.JToggleButton();
+        btnVerfServ = new javax.swing.JButton();
         Clientes = new javax.swing.JPanel();
         btnBackCadCliente = new javax.swing.JButton();
         lblTituloClientes = new javax.swing.JLabel();
@@ -83,6 +87,7 @@ public class Interface extends javax.swing.JFrame {
         lblDelCliente = new javax.swing.JLabel();
         btnConfDelCliente = new javax.swing.JButton();
         btnNegDelCliente = new javax.swing.JButton();
+        btnAltClient = new javax.swing.JToggleButton();
         Funcionarios = new javax.swing.JPanel();
         btnBackCadFunc = new javax.swing.JButton();
         lblTituloCadFunc = new javax.swing.JLabel();
@@ -100,6 +105,7 @@ public class Interface extends javax.swing.JFrame {
         btnDeleteFuncionario = new javax.swing.JButton();
         btnConfDelFunc = new javax.swing.JButton();
         btnNegDelFunc = new javax.swing.JButton();
+        btnAltFunc = new javax.swing.JToggleButton();
         Atendimentos = new javax.swing.JPanel();
         btnBackAtendimentos = new javax.swing.JButton();
         lblTituloAtendimento = new javax.swing.JLabel();
@@ -112,13 +118,14 @@ public class Interface extends javax.swing.JFrame {
         jpanelListaFuncAtendmiento = new javax.swing.JScrollPane();
         listFuncionariosDispo = new javax.swing.JList<>();
         lblNomeClienteAtendmiento = new javax.swing.JLabel();
-        txtNomeClienteAtendmiento = new javax.swing.JTextField();
         lblStatusAtendmiento = new javax.swing.JLabel();
         panelStatusAtendimento = new javax.swing.JScrollPane();
         listStatusAtendmiento = new javax.swing.JList();
         lblDescAtendmiento = new javax.swing.JLabel();
         panelTxtAtendmiento = new javax.swing.JScrollPane();
         txtDescAtendmiento = new javax.swing.JTextArea();
+        listClienteDispo = new javax.swing.JList<>();
+        btnAltAtend = new javax.swing.JToggleButton();
         Agenda = new javax.swing.JPanel();
         lblTituloAgenda = new javax.swing.JLabel();
         btnBackAgenda = new javax.swing.JButton();
@@ -139,6 +146,9 @@ public class Interface extends javax.swing.JFrame {
         btnVerfMarcar = new javax.swing.JButton();
         lblFuncMarcar = new javax.swing.JLabel();
         BtnMarcar2 = new javax.swing.JButton();
+        listClienteDispHor = new javax.swing.JList<>();
+        lblClientHor = new javax.swing.JLabel();
+        btnAltHor = new javax.swing.JToggleButton();
         remarcarhorario = new javax.swing.JPanel();
         lblTituloRemarcar = new javax.swing.JLabel();
         btnBackRemarcar = new javax.swing.JButton();
@@ -170,6 +180,7 @@ public class Interface extends javax.swing.JFrame {
         txtAreaRelato = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(350, 576));
 
         menuPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -314,8 +325,13 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        btnCadastroServico.setText("Cadastrar/Verificar");
+        btnCadastroServico.setText("Cadastrar");
         btnCadastroServico.setToolTipText("Cadastra o servico com o nome e a descrição detalhadasa acima");
+        btnCadastroServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroServicoActionPerformed(evt);
+            }
+        });
 
         txtDescServ.setColumns(20);
         txtDescServ.setRows(5);
@@ -327,6 +343,16 @@ public class Interface extends javax.swing.JFrame {
         lblDescServ.setText("Descrição do serviço");
 
         lblErroServ.setText(" ");
+
+        btnAltServ.setText("Alterar");
+        btnAltServ.setToolTipText("quando ativado o botao cadastrar fara com que o dados sejam alterados");
+
+        btnVerfServ.setText("Verificar");
+        btnVerfServ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerfServActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout servicosLayout = new javax.swing.GroupLayout(servicos);
         servicos.setLayout(servicosLayout);
@@ -348,19 +374,28 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(servicosLayout.createSequentialGroup()
                 .addGroup(servicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(servicosLayout.createSequentialGroup()
+                        .addGroup(servicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(servicosLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(servicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBackServ)
+                                    .addComponent(txtNomeServ, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(servicosLayout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(lblDescServ)))
+                        .addGap(0, 2, Short.MAX_VALUE))
+                    .addGroup(servicosLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(servicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBackServ)
-                            .addComponent(txtNomeServ, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(servicosLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(lblDescServ))
-                    .addGroup(servicosLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addGroup(servicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCadastroServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(servicosLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnVerfServ)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCadastroServico)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAltServ))
                             .addComponent(lblErroServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap())
         );
         servicosLayout.setVerticalGroup(
             servicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,7 +415,10 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(lblErroServ)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCadastroServico)
+                .addGroup(servicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastroServico)
+                    .addComponent(btnAltServ)
+                    .addComponent(btnVerfServ))
                 .addContainerGap())
         );
 
@@ -395,7 +433,7 @@ public class Interface extends javax.swing.JFrame {
         lblTituloClientes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTituloClientes.setText("Cadastro de clientes");
 
-        btnCadastroCliente.setText("Cadastrar/Verificar");
+        btnCadastroCliente.setText("Cadastrar");
         btnCadastroCliente.setToolTipText("Cadastra o cliente com as informações descritas acima");
 
         txtNomeCadastroCliente.setToolTipText("Nome do Cliente");
@@ -481,6 +519,9 @@ public class Interface extends javax.swing.JFrame {
         btnNegDelCliente.setText("Nao");
         btnNegDelCliente.setToolTipText("Cancelar ");
 
+        btnAltClient.setText("Alterar");
+        btnAltClient.setToolTipText("quando ativado o botao cadastrar fara com que o dados sejam alterados");
+
         javax.swing.GroupLayout ClientesLayout = new javax.swing.GroupLayout(Clientes);
         Clientes.setLayout(ClientesLayout);
         ClientesLayout.setHorizontalGroup(
@@ -528,7 +569,11 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(lblCadClienteSituacao))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnTglSituacao)
+                            .addGroup(ClientesLayout.createSequentialGroup()
+                                .addComponent(BtnTglSituacao)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAltClient)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtCadClienteTipo)
                             .addComponent(txtCadClienteEstCivil))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -543,10 +588,13 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(btnNegDelCliente)
                 .addGap(143, 143, 143))
             .addGroup(ClientesLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
                 .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCadastroCliente)
-                    .addComponent(lblCadClienteErro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ClientesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCadastroCliente))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ClientesLayout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(lblCadClienteErro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         ClientesLayout.setVerticalGroup(
@@ -591,7 +639,8 @@ public class Interface extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnTglSituacao)
-                    .addComponent(lblCadClienteSituacao))
+                    .addComponent(lblCadClienteSituacao)
+                    .addComponent(btnAltClient))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCadClienteErro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -601,7 +650,7 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(btnConfDelCliente)
                     .addComponent(btnNegDelCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCadastroCliente)
+                .addComponent(btnCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -616,7 +665,7 @@ public class Interface extends javax.swing.JFrame {
         lblTituloCadFunc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTituloCadFunc.setText("Cadastro de Funcionarios");
 
-        btnCadFunc.setText("Cadastrar/Verificar");
+        btnCadFunc.setText("Cadastrar");
         btnCadFunc.setToolTipText("Cadastra ou verifica os dados acima");
 
         txtCadFunc.setToolTipText("Nome do Funcionario");
@@ -670,58 +719,66 @@ public class Interface extends javax.swing.JFrame {
         btnNegDelFunc.setText("Nao");
         btnNegDelFunc.setToolTipText("Canceça  o deletamento do Funcionario");
 
+        btnAltFunc.setText("Alterar");
+        btnAltFunc.setToolTipText("quando ativado o botao cadastrar fara com que o dados sejam alterados");
+
         javax.swing.GroupLayout FuncionariosLayout = new javax.swing.GroupLayout(Funcionarios);
         Funcionarios.setLayout(FuncionariosLayout);
         FuncionariosLayout.setHorizontalGroup(
             FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FuncionariosLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FuncionariosLayout.createSequentialGroup()
                         .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCadFuncTel)
+                            .addComponent(lblCadFuncEmail))
+                        .addGap(13, 13, 13)
+                        .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(FuncionariosLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnBackCadFunc))
+                                .addComponent(txtCadFuncTel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(FuncionariosLayout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(lblTituloCadFunc))
-                            .addGroup(FuncionariosLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCadFuncNome)
-                                    .addComponent(lblCadFuncCpf))
-                                .addGap(28, 28, 28)
-                                .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCadFuncCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(txtCadFuncEmail)
+                                .addContainerGap())))
+                    .addGroup(FuncionariosLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(btnDeleteFuncionario)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConfDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(btnNegDelFunc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCadFuncErro, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                    .addGroup(FuncionariosLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(lblCadFuncSituacao)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(FuncionariosLayout.createSequentialGroup()
+                .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FuncionariosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnBackCadFunc))
                     .addGroup(FuncionariosLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FuncionariosLayout.createSequentialGroup()
-                                .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCadFuncTel)
-                                    .addComponent(lblCadFuncEmail))
-                                .addGap(13, 13, 13)
-                                .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(FuncionariosLayout.createSequentialGroup()
-                                        .addComponent(txtCadFuncTel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtCadFuncEmail)))
-                            .addGroup(FuncionariosLayout.createSequentialGroup()
-                                .addComponent(lblCadFuncSituacao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(FuncionariosLayout.createSequentialGroup()
-                                        .addComponent(btnCadFunc)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(FuncionariosLayout.createSequentialGroup()
-                                        .addComponent(btnDeleteFuncionario)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                                        .addComponent(btnConfDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnNegDelFunc))))))
-                    .addComponent(lblCadFuncErro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblCadFuncNome)
+                            .addComponent(lblCadFuncCpf))
+                        .addGap(28, 28, 28)
+                        .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCadFuncCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCadFunc)))
+                    .addGroup(FuncionariosLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(btnCadFunc))
+                    .addGroup(FuncionariosLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(btnAltFunc)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FuncionariosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTituloCadFunc)
+                .addGap(22, 22, 22))
         );
         FuncionariosLayout.setVerticalGroup(
             FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -747,16 +804,18 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(lblCadFuncEmail)
                     .addComponent(txtCadFuncEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblCadFuncErro)
+                .addComponent(btnAltFunc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCadFuncSituacao)
+                .addGap(18, 18, 18)
                 .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCadFuncSituacao)
+                    .addComponent(lblCadFuncErro)
                     .addComponent(btnDeleteFuncionario)
                     .addComponent(btnConfDelFunc)
                     .addComponent(btnNegDelFunc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCadFunc)
-                .addContainerGap())
+                .addGap(34, 34, 34))
         );
 
         btnBackAtendimentos.setText("Voltar");
@@ -770,7 +829,7 @@ public class Interface extends javax.swing.JFrame {
         lblTituloAtendimento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTituloAtendimento.setText("Atendimentos");
 
-        btnCadastroAtendimento.setText("Cadastrar/Verificar");
+        btnCadastroAtendimento.setText("Cadastrar");
 
         txtDataAtendimento.setText("DD/MM/AA");
         txtDataAtendimento.setToolTipText("Data: DD/MM/AA");
@@ -797,13 +856,6 @@ public class Interface extends javax.swing.JFrame {
 
         lblNomeClienteAtendmiento.setText("Nome do cliente");
 
-        txtNomeClienteAtendmiento.setToolTipText("Nome do cliente");
-        txtNomeClienteAtendmiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeClienteAtendmientoActionPerformed(evt);
-            }
-        });
-
         lblStatusAtendmiento.setText("Status do Atendimento");
 
         listStatusAtendmiento.setModel(new javax.swing.AbstractListModel() {
@@ -821,6 +873,15 @@ public class Interface extends javax.swing.JFrame {
         txtDescAtendmiento.setToolTipText("Descrição do atendimento");
         panelTxtAtendmiento.setViewportView(txtDescAtendmiento);
 
+        listClienteDispo.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+
+        btnAltAtend.setText("Alterar");
+        btnAltAtend.setToolTipText("quando ativado o botao cadastrar fara com que o dados sejam alterados");
+
         javax.swing.GroupLayout AtendimentosLayout = new javax.swing.GroupLayout(Atendimentos);
         Atendimentos.setLayout(AtendimentosLayout);
         AtendimentosLayout.setHorizontalGroup(
@@ -828,40 +889,48 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(AtendimentosLayout.createSequentialGroup()
                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AtendimentosLayout.createSequentialGroup()
+                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AtendimentosLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBackAtendimentos)
+                                    .addGroup(AtendimentosLayout.createSequentialGroup()
+                                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblDataAtendmiento)
+                                            .addComponent(lblHorarioAtendmiento))
+                                        .addGap(28, 28, 28)
+                                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtHorarioAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtDataAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(AtendimentosLayout.createSequentialGroup()
+                                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblFuncionariosAtendmiento)
+                                            .addComponent(lblNomeClienteAtendmiento))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jpanelListaFuncAtendmiento, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                            .addComponent(listClienteDispo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addGroup(AtendimentosLayout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addComponent(lblTituloAtendimento)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(AtendimentosLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnBackAtendimentos)
-                            .addGroup(AtendimentosLayout.createSequentialGroup()
-                                .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDataAtendmiento)
-                                    .addComponent(lblHorarioAtendmiento))
-                                .addGap(28, 28, 28)
-                                .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtHorarioAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDataAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(AtendimentosLayout.createSequentialGroup()
-                                .addComponent(lblFuncionariosAtendmiento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jpanelListaFuncAtendmiento))
-                            .addGroup(AtendimentosLayout.createSequentialGroup()
-                                .addComponent(lblNomeClienteAtendmiento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNomeClienteAtendmiento))
-                            .addGroup(AtendimentosLayout.createSequentialGroup()
-                                .addComponent(lblStatusAtendmiento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panelStatusAtendimento))
+                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AtendimentosLayout.createSequentialGroup()
                                 .addComponent(lblDescAtendmiento)
                                 .addGap(18, 18, 18)
-                                .addComponent(panelTxtAtendmiento, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))))
-                    .addGroup(AtendimentosLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(lblTituloAtendimento))
-                    .addGroup(AtendimentosLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(btnCadastroAtendimento)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                                .addComponent(panelTxtAtendmiento))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtendimentosLayout.createSequentialGroup()
+                                .addComponent(lblStatusAtendmiento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(panelStatusAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AtendimentosLayout.createSequentialGroup()
+                                .addGap(75, 75, 75)
+                                .addComponent(btnCadastroAtendimento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAltAtend)))))
+                .addContainerGap())
         );
         AtendimentosLayout.setVerticalGroup(
             AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -882,21 +951,23 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblFuncionariosAtendmiento)
                     .addComponent(jpanelListaFuncAtendmiento, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeClienteAtendmiento)
-                    .addComponent(txtNomeClienteAtendmiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(listClienteDispo, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblStatusAtendmiento)
-                    .addComponent(panelStatusAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelStatusAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStatusAtendmiento))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDescAtendmiento)
                     .addComponent(panelTxtAtendmiento, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCadastroAtendimento)
-                .addContainerGap())
+                .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastroAtendimento)
+                    .addComponent(btnAltAtend))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         lblTituloAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -969,9 +1040,9 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(lblDataAgenda))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVerfAgenda)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(panelAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblTituloMarcar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1015,7 +1086,18 @@ public class Interface extends javax.swing.JFrame {
 
         lblFuncMarcar.setText("Funcionarios disponiveis");
 
-        BtnMarcar2.setText("Cadastrar/Verificar");
+        BtnMarcar2.setText("Cadastrar");
+
+        listClienteDispHor.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+
+        lblClientHor.setText("Clientes Disponiveis");
+
+        btnAltHor.setText("Alterar");
+        btnAltHor.setToolTipText("quando ativado o botao cadastrar fara com que o dados sejam alterados");
 
         javax.swing.GroupLayout marcarhorarioLayout = new javax.swing.GroupLayout(marcarhorario);
         marcarhorario.setLayout(marcarhorarioLayout);
@@ -1023,16 +1105,11 @@ public class Interface extends javax.swing.JFrame {
             marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(marcarhorarioLayout.createSequentialGroup()
                 .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, marcarhorarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelMarcar, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                            .addGroup(marcarhorarioLayout.createSequentialGroup()
-                                .addGap(80, 80, 80)
-                                .addComponent(lblFuncMarcar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(marcarhorarioLayout.createSequentialGroup()
                         .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(marcarhorarioLayout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(lblFuncMarcar))
                             .addGroup(marcarhorarioLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1050,12 +1127,25 @@ public class Interface extends javax.swing.JFrame {
                                                 .addComponent(txtDataMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(marcarhorarioLayout.createSequentialGroup()
                                 .addGap(99, 99, 99)
-                                .addComponent(btnVerfMarcar)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(btnVerfMarcar))
+                            .addGroup(marcarhorarioLayout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(lblClientHor)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(marcarhorarioLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(listClienteDispHor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelMarcar))))
                 .addContainerGap())
             .addGroup(marcarhorarioLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(BtnMarcar2)
+                .addGap(77, 77, 77)
+                .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnMarcar2)
+                    .addGroup(marcarhorarioLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(btnAltHor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         marcarhorarioLayout.setVerticalGroup(
@@ -1077,11 +1167,17 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(btnVerfMarcar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFuncMarcar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblClientHor, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(listClienteDispHor, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(BtnMarcar2)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAltHor)
+                .addGap(60, 60, 60))
         );
 
         lblTituloRemarcar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1227,7 +1323,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(lblErroRemarcar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCadRemarcar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         relatorios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1244,6 +1340,11 @@ public class Interface extends javax.swing.JFrame {
         });
 
         btnServRelato.setText("Serviços");
+        btnServRelato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServRelatoActionPerformed(evt);
+            }
+        });
 
         btnFuncRelato.setText("Funcionarios");
         btnFuncRelato.addActionListener(new java.awt.event.ActionListener() {
@@ -1277,6 +1378,8 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        panelRelato.setBorder(null);
+
         txtAreaRelato.setEditable(false);
         txtAreaRelato.setColumns(20);
         txtAreaRelato.setRows(5);
@@ -1287,14 +1390,13 @@ public class Interface extends javax.swing.JFrame {
         relatoriosLayout.setHorizontalGroup(
             relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(relatoriosLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelRelato)
                     .addGroup(relatoriosLayout.createSequentialGroup()
                         .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(relatoriosLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnBackRelato))
-                            .addGroup(relatoriosLayout.createSequentialGroup()
-                                .addGap(42, 42, 42)
+                                .addGap(10, 10, 10)
                                 .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(btnClienteRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1303,11 +1405,9 @@ public class Interface extends javax.swing.JFrame {
                                         .addComponent(btnClienteSitRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnAgendaRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnRelatoPorCleinte, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblRelato, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 15, Short.MAX_VALUE))
-                    .addGroup(relatoriosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelRelato)))
+                                    .addComponent(lblRelato, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnBackRelato))
+                        .addGap(0, 26, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         relatoriosLayout.setVerticalGroup(
@@ -1350,7 +1450,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(Agenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(marcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(31, 31, 31)
                 .addComponent(remarcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1361,19 +1461,23 @@ public class Interface extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Funcionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(remarcarhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Atendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Agenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(marcarhorario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(marcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Agenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(Atendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(remarcarhorario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Funcionarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(relatorios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         pack();
@@ -1395,6 +1499,8 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
         menuPrincipal.setVisible(false);
         servicos.setVisible(true);
+        btnCadastroServico.setVisible(false);
+        btnAltServ.setVisible(false);
     }//GEN-LAST:event_btnMenuServicoActionPerformed
 
     private void btnBackServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackServActionPerformed
@@ -1464,10 +1570,6 @@ public class Interface extends javax.swing.JFrame {
     private void txtDataAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataAtendimentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDataAtendimentoActionPerformed
-
-    private void txtNomeClienteAtendmientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClienteAtendmientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeClienteAtendmientoActionPerformed
 
     private void btnBackAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackAgendaActionPerformed
         // TODO add your handling code here:
@@ -1562,6 +1664,92 @@ public class Interface extends javax.swing.JFrame {
         menuPrincipal.setVisible(false);
         relatorios.setVisible(true);
     }//GEN-LAST:event_btnMenuRelatoriosActionPerformed
+
+    private void btnVerfServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfServActionPerformed
+        // TODO add your handling code here:
+        btnCadastroServico.setVisible(true);
+        btnAltServ.setVisible(true);
+        ArrayList<servico> serv = new ArrayList<servico>();
+        servico servFunc = new servico();
+        String nome = txtNomeServ.getText();
+        String desc = txtDescServ.getText();
+        serv=servFunc.ler();
+        int t=0;
+        for (servico obj :  serv) {
+            if (obj.Nome.equals(nome)){
+                t++;
+                lblErroServ.setText("Cadastro encontrado");
+                txtNomeServ.setText(obj.Nome);
+                txtDescServ.setText(obj.Desc);
+            }
+        }
+        if (t==0){
+            lblErroServ.setText("Cadastro Não encontrado");
+        }
+    }//GEN-LAST:event_btnVerfServActionPerformed
+
+    private void btnCadastroServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroServicoActionPerformed
+        // TODO add your handling code here:
+        ArrayList<servico> serv = new ArrayList<servico>();
+        servico servFunc = new servico();
+        String nome = txtNomeServ.getText();
+        String desc = txtDescServ.getText();
+        serv=servFunc.ler();
+        
+        if (btnAltServ.isSelected()){
+            for (servico obj :  serv) {
+                if (obj.Nome.equals(nome)){
+                    obj.Nome=nome;
+                    obj.Desc=desc;
+                    servFunc.gravar(serv);
+                    txtNomeServ.setText(" ");
+                    txtDescServ.setText(" ");
+                    lblErroServ.setText("Alterado com sucesso");
+                }
+            }
+        } else {
+            int t=0;
+            if (serv.size()==0){
+                System.out.println("tamanho do arquivo zerado");
+                    if (t==0){
+                    serv.add(new servico(nome,desc));
+                    servFunc.gravar(serv);
+                    txtNomeServ.setText(" ");
+                    txtDescServ.setText(" ");
+                    lblErroServ.setText("Cadastrado com sucesso");
+                }
+            }else{
+                for (servico obj :  serv) {
+                    if (obj.Nome.equals(nome)){
+                        t++;
+                        lblErroServ.setText("Servico  ja cadastrado.por favor altere-o.");
+                    } else{
+                        if (t==0){
+                        serv.add(new servico(nome,desc));
+                        servFunc.gravar(serv);
+                        txtNomeServ.setText(" ");
+                        txtDescServ.setText(" ");
+                        lblErroServ.setText("Cadastrado com sucesso");
+                        }
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_btnCadastroServicoActionPerformed
+
+    private void btnServRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServRelatoActionPerformed
+        // TODO add your handling code here:
+        String temp="";
+        ArrayList<servico> serv = new ArrayList<servico>();
+        servico servFunc = new servico();
+        String nome = txtNomeServ.getText();
+        String desc = txtDescServ.getText();
+        serv=servFunc.ler();
+        for (servico obj :  serv) {
+            temp="Nome: "+obj.Nome+"\n Desc: "+obj.Desc+"\n";
+        }
+        txtAreaRelato.setText(temp);
+    }//GEN-LAST:event_btnServRelatoActionPerformed
     /*public static void FuncErroBanco(String erro){
         lblVerificaBanco.setText(erro);
     }*/
@@ -1610,7 +1798,12 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel Clientes;
     private javax.swing.JPanel Funcionarios;
     private javax.swing.JButton btnAgendaRelato;
+    private javax.swing.JToggleButton btnAltAtend;
+    private javax.swing.JToggleButton btnAltClient;
+    private javax.swing.JToggleButton btnAltFunc;
+    private javax.swing.JToggleButton btnAltHor;
     private javax.swing.JButton btnAltRemarcar;
+    private javax.swing.JToggleButton btnAltServ;
     private javax.swing.JButton btnBackAgenda;
     private javax.swing.JButton btnBackAtendimentos;
     private javax.swing.JButton btnBackCadCliente;
@@ -1648,6 +1841,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton btnVerfAgenda;
     private javax.swing.JButton btnVerfClienteRermarcar;
     private javax.swing.JButton btnVerfMarcar;
+    private javax.swing.JButton btnVerfServ;
     private javax.swing.JScrollPane jPanelServ;
     private javax.swing.JScrollPane jpanelListaFuncAtendmiento;
     private javax.swing.JLabel lblAltRemarcar;
@@ -1662,11 +1856,12 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel lblCadClienteTipo;
     private javax.swing.JLabel lblCadFuncCpf;
     private javax.swing.JLabel lblCadFuncEmail;
-    private javax.swing.JLabel lblCadFuncErro;
+    public javax.swing.JLabel lblCadFuncErro;
     private javax.swing.JLabel lblCadFuncNome;
     private javax.swing.JLabel lblCadFuncSituacao;
     private javax.swing.JLabel lblCadFuncTel;
     private javax.swing.JLabel lblCastroNomeCliente;
+    private javax.swing.JLabel lblClientHor;
     private javax.swing.JLabel lblDataAgenda;
     private javax.swing.JLabel lblDataAtendmiento;
     private javax.swing.JLabel lblDataMarcar;
@@ -1694,8 +1889,10 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel lblTituloMarcar;
     private javax.swing.JLabel lblTituloRemarcar;
     private javax.swing.JLabel lblTituloServico;
-    private javax.swing.JLabel lblVerificaBanco;
+    public static javax.swing.JLabel lblVerificaBanco;
     private javax.swing.JList listAgenda;
+    private javax.swing.JList<String> listClienteDispHor;
+    private javax.swing.JList<String> listClienteDispo;
     private javax.swing.JList listFuncRemarcar;
     private javax.swing.JList<String> listFuncionariosDispo;
     private javax.swing.JList listHorarioRemarcar;
@@ -1733,7 +1930,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextField txtHorarioAtendimento;
     private javax.swing.JTextField txtHorarioMarcar;
     private javax.swing.JTextField txtNomeCadastroCliente;
-    private javax.swing.JTextField txtNomeClienteAtendmiento;
     private javax.swing.JTextField txtNomeServ;
     private javax.swing.JTextField txtRemarcarNomeCliente;
     // End of variables declaration//GEN-END:variables

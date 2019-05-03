@@ -11,51 +11,43 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author bazei
  */
-public class servico {
-    private String Nome;
-    private String Desc;
+public class servico implements Serializable {
+    public String Nome;
+    public String Desc;
     
     
-    public void setNomeServ(String NomeServ){
-        this.Nome = NomeServ;
+    public servico (){
     }
-    public String getNomeServ(){
-        return (this.Nome);
+    public servico (String nome, String Desc){
+        this.Nome = nome;
+        this.Desc = Desc;
     }
-    public void setDescServ(String DescServ){
-        this.Desc = DescServ;
-    }
-    public String getDescServ(){
-        return (this.Desc);
-    }
-    public void gravarCliente(ArrayList<servico> pessoa) {
+    public void gravar(ArrayList<servico> pessoa) {
         File arq = new File("servico.dat");
-        String errol = "Testando";
         try {
           //arq.delete(); //Deleta o Arquivo existente
           //arq.createNewFile(); // Cria um novo arquivo
-      
+          if (!arq.exists()) {
+              System.out.println("Entrou no if do arquivo do serviço");
+              arq.createNewFile();
+          }
           ObjectOutputStream objOutput = new ObjectOutputStream(new FileOutputStream(arq));
           objOutput.writeObject(pessoa);
           objOutput.close();
-          errol= "sucesso";
         } catch(IOException erro) {
             System.out.printf("Erro: %s", erro.getMessage());
-            errol = "Erro: "+erro.getMessage();
-            Interface inter = new Interface();
-            inter.lblErroServ.setText(errol);
         }
         
       }
     
-    public ArrayList<servico> lerArquivo() {
-        String errol = "Testando";
+    public ArrayList<servico> ler() {
         ArrayList<servico> lista = new ArrayList();
         try {
           File arq = new File("servico.dat");
@@ -65,15 +57,9 @@ public class servico {
              objInput.close();
           }
         } catch(IOException erro1) {
-            System.out.printf("Erro: %s", erro1.getMessage());
-            errol = erro1.getMessage();
-            Interface inter = new Interface();
-            inter.lblErroServ.setText("Erro: "+ erro1);
+            System.out.printf("Erro 1: %s", erro1.getMessage());
         } catch(ClassNotFoundException erro2) {
-            System.out.printf("Erro: %s", erro2.getMessage());
-            errol = erro2.getMessage();
-            Interface inter = new Interface();
-            inter.lblErroServ.setText("Erro: "+erro2);
+            System.out.printf("Erro 2: %s", erro2.getMessage());
         }
         
         return(lista);
