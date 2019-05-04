@@ -38,11 +38,8 @@ public class Cliente implements Serializable {
         File arq = new File("cliente.dat");
         String errol = "Testando";
         try {
-          //arq.delete(); //Deleta o Arquivo existente
-          //arq.createNewFile(); // Cria um novo arquivo
-          if (!arq.exists()) {
-              arq.createNewFile();
-          }
+          arq.delete(); //Deleta o Arquivo existente
+          arq.createNewFile(); // Cria um novo arquivo
           ObjectOutputStream objOutput = new ObjectOutputStream(new FileOutputStream(arq));
           objOutput.writeObject(pessoa);
           objOutput.close();

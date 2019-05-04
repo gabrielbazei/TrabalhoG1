@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package trabalhog1;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 /**
  *
  * @author bazei
  */
-public class Interface extends javax.swing.JFrame {
+public class Interface extends javax.swing.JFrame implements Serializable{
 
     /**
      * Creates new form Interface
@@ -64,7 +65,7 @@ public class Interface extends javax.swing.JFrame {
         btnBackCadCliente = new javax.swing.JButton();
         lblTituloClientes = new javax.swing.JLabel();
         btnCadastroCliente = new javax.swing.JButton();
-        txtNomeCadastroCliente = new javax.swing.JTextField();
+        txtNomeCadClient = new javax.swing.JTextField();
         lblCastroNomeCliente = new javax.swing.JLabel();
         lblCadClienteCpf = new javax.swing.JLabel();
         txtCadClienteCpf = new javax.swing.JTextField();
@@ -88,6 +89,7 @@ public class Interface extends javax.swing.JFrame {
         btnConfDelCliente = new javax.swing.JButton();
         btnNegDelCliente = new javax.swing.JButton();
         btnAltClient = new javax.swing.JToggleButton();
+        btnVerfClient = new javax.swing.JButton();
         Funcionarios = new javax.swing.JPanel();
         btnBackCadFunc = new javax.swing.JButton();
         lblTituloCadFunc = new javax.swing.JLabel();
@@ -435,11 +437,16 @@ public class Interface extends javax.swing.JFrame {
 
         btnCadastroCliente.setText("Cadastrar");
         btnCadastroCliente.setToolTipText("Cadastra o cliente com as informações descritas acima");
-
-        txtNomeCadastroCliente.setToolTipText("Nome do Cliente");
-        txtNomeCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeCadastroClienteActionPerformed(evt);
+                btnCadastroClienteActionPerformed(evt);
+            }
+        });
+
+        txtNomeCadClient.setToolTipText("Nome do Cliente");
+        txtNomeCadClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeCadClientActionPerformed(evt);
             }
         });
 
@@ -499,8 +506,7 @@ public class Interface extends javax.swing.JFrame {
 
         lblCadClienteSituacao.setText("Situaçao");
 
-        lblCadClienteErro.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
-        lblCadClienteErro.setForeground(new java.awt.Color(255, 0, 0));
+        lblCadClienteErro.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblCadClienteErro.setText(" ");
 
         btnDeleteCliente.setText("Deletar?");
@@ -515,12 +521,29 @@ public class Interface extends javax.swing.JFrame {
 
         btnConfDelCliente.setText("Sim");
         btnConfDelCliente.setToolTipText("Tem certeza de deletar o cliente?");
+        btnConfDelCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfDelClienteActionPerformed(evt);
+            }
+        });
 
         btnNegDelCliente.setText("Nao");
         btnNegDelCliente.setToolTipText("Cancelar ");
+        btnNegDelCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNegDelClienteActionPerformed(evt);
+            }
+        });
 
         btnAltClient.setText("Alterar");
         btnAltClient.setToolTipText("quando ativado o botao cadastrar fara com que o dados sejam alterados");
+
+        btnVerfClient.setText("Verificar");
+        btnVerfClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerfClientActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ClientesLayout = new javax.swing.GroupLayout(Clientes);
         Clientes.setLayout(ClientesLayout);
@@ -536,11 +559,9 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(lblCadClienteEndereco))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ClientesLayout.createSequentialGroup()
-                                .addComponent(txtCadClienteTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtCadClienteEmail)
-                            .addComponent(txtCadClienteEndereco)))
+                            .addComponent(txtCadClienteEndereco)
+                            .addComponent(txtCadClienteTelefone)))
                     .addGroup(ClientesLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnBackCadCliente))
@@ -553,9 +574,9 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(lblCastroNomeCliente)
                             .addComponent(lblCadClienteCpf))
                         .addGap(28, 28, 28)
-                        .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCadClienteCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNomeCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNomeCadClient, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                            .addComponent(txtCadClienteCpf)))
                     .addGroup(ClientesLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblCadClienteNasc)
@@ -569,33 +590,33 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(lblCadClienteSituacao))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCadClienteTipo)
+                            .addComponent(txtCadClienteEstCivil)
                             .addGroup(ClientesLayout.createSequentialGroup()
                                 .addComponent(BtnTglSituacao)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnAltClient)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtCadClienteTipo)
-                            .addComponent(txtCadClienteEstCivil))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnVerfClient)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(ClientesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDelCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDeleteCliente)
-                .addGap(18, 18, 18)
-                .addComponent(btnConfDelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNegDelCliente)
-                .addGap(143, 143, 143))
-            .addGroup(ClientesLayout.createSequentialGroup()
-                .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(ClientesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnCadastroCliente))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ClientesLayout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(lblCadClienteErro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(142, 142, 142)
+                .addComponent(btnCadastroCliente)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCadClienteErro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ClientesLayout.createSequentialGroup()
+                        .addComponent(lblDelCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDeleteCliente)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConfDelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNegDelCliente)))
+                .addGap(143, 143, 143))
         );
         ClientesLayout.setVerticalGroup(
             ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -606,7 +627,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(lblTituloClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomeCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomeCadClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCastroNomeCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -640,7 +661,8 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnTglSituacao)
                     .addComponent(lblCadClienteSituacao)
-                    .addComponent(btnAltClient))
+                    .addComponent(btnAltClient)
+                    .addComponent(btnVerfClient))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCadClienteErro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1144,8 +1166,7 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(BtnMarcar2)
                     .addGroup(marcarhorarioLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(btnAltHor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAltHor)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         marcarhorarioLayout.setVerticalGroup(
@@ -1519,9 +1540,9 @@ public class Interface extends javax.swing.JFrame {
         menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackCadClienteActionPerformed
 
-    private void txtNomeCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCadastroClienteActionPerformed
+    private void txtNomeCadClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCadClientActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeCadastroClienteActionPerformed
+    }//GEN-LAST:event_txtNomeCadClientActionPerformed
 
     private void txtCadClienteTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCadClienteTelefoneActionPerformed
         // TODO add your handling code here:
@@ -1611,6 +1632,24 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnClienteRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteRelatoActionPerformed
         // TODO add your handling code here:
+        String temp="";
+        ArrayList<Cliente> serv = new ArrayList<Cliente>();
+        Cliente servFunc = new Cliente();
+        serv=servFunc.ler();
+
+        for (int i = 0; i < serv.size(); ++i) {
+        Cliente obj = (Cliente) serv.get(i);
+            temp+="**********************************************\n Nome: "+obj.nome+"\n cpf: "+obj.cpf+"\n Tel: "+obj.telefone+"\n Email: "+obj.email+"\n Endereço: "+obj.endereco+"\n Nascimento: "+obj.nasc
+            +"\n sexo: "+obj.sexo+"\n Estado civil: "+obj.civil+"\n Ativado: ";
+            if (obj.ativado){
+                temp+="Ativado";
+            }else{
+                temp+="Desativado";
+            }
+            temp+="\n **********************************\n";
+        }
+        
+        txtAreaRelato.setText(temp);
     }//GEN-LAST:event_btnClienteRelatoActionPerformed
 
     private void btnClienteSitRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteSitRelatoActionPerformed
@@ -1633,12 +1672,22 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnDeleteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteClienteActionPerformed
         // TODO add your handling code here:
+        btnDeleteCliente.setVisible(false);
+        btnConfDelCliente.setVisible(true);
+        btnNegDelCliente.setVisible(true);
     }//GEN-LAST:event_btnDeleteClienteActionPerformed
 
     private void btnMenuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuClienteActionPerformed
         // TODO add your handling code here:
         menuPrincipal.setVisible(false);
         Clientes.setVisible(true);
+        btnDeleteCliente.setVisible(false);
+        btnAltClient.setVisible(false);
+        btnDeleteCliente.setVisible(false);
+        lblDelCliente.setVisible(false);
+        btnConfDelCliente.setVisible(false);
+        btnNegDelCliente.setVisible(false);
+        btnCadastroCliente.setVisible(false);
     }//GEN-LAST:event_btnMenuClienteActionPerformed
 
     private void btnMenuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuFuncionarioActionPerformed
@@ -1710,7 +1759,6 @@ public class Interface extends javax.swing.JFrame {
         } else {
             int t=0;
             if (serv.size()==0){
-                System.out.println("tamanho do arquivo zerado");
                     if (t==0){
                     serv.add(new servico(nome,desc));
                     servFunc.gravar(serv);
@@ -1746,10 +1794,196 @@ public class Interface extends javax.swing.JFrame {
         String desc = txtDescServ.getText();
         serv=servFunc.ler();
         for (servico obj :  serv) {
-            temp="Nome: "+obj.Nome+"\n Desc: "+obj.Desc+"\n";
+            temp+="Nome: "+obj.Nome+"\n Desc: "+obj.Desc+"\n";
         }
         txtAreaRelato.setText(temp);
     }//GEN-LAST:event_btnServRelatoActionPerformed
+
+    private void btnVerfClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfClientActionPerformed
+        // TODO add your handling code here:
+        btnAltClient.setVisible(true);
+        btnDeleteCliente.setVisible(true);
+        lblDelCliente.setVisible(true);
+        btnCadastroCliente.setVisible(true);
+        ArrayList<Cliente> Cvec = new ArrayList<Cliente>();
+        Cliente c1 = new Cliente();
+        String nome = txtNomeCadClient.getText();
+        String cpf = txtCadClienteCpf.getText();
+        String tel = txtCadClienteTelefone.getText();
+        String email = txtCadClienteEmail.getText();
+        String ender = txtCadClienteEndereco.getText();
+        String Nasc = txtCadClienteNasc.getText();
+        String sex = txtCadClienteTipo.getText();
+        String civil = txtCadClienteEstCivil.getText();
+        Boolean ativado = BtnTglSituacao.isSelected();
+        Cvec=c1.ler();
+        
+        int t=0;
+        System.out.println(Cvec.size());
+        if (Cvec.size() > 0){
+            for (Cliente obj :  Cvec) {
+                System.out.println(obj.cpf);
+                if (obj.cpf.equals(cpf)){
+                    t++;
+                    lblCadClienteErro.setText("Cadastro encontrado");
+                    txtNomeCadClient.setText(obj.nome);
+                    txtCadClienteCpf.setText(obj.cpf);
+                    txtCadClienteTelefone.setText(obj.telefone);
+                    txtCadClienteEmail.setText(obj.email);
+                    txtCadClienteEndereco.setText(obj.endereco);
+                    txtCadClienteNasc.setText(obj.nasc);
+                    txtCadClienteTipo.setText(obj.sexo);
+                    txtCadClienteEstCivil.setText(obj.civil);
+                    BtnTglSituacao.setSelected(obj.ativado);
+                }
+            }
+        }
+        if (t==0){
+            lblCadClienteErro.setText("Cadastro Não encontrado");
+        }
+    }//GEN-LAST:event_btnVerfClientActionPerformed
+
+    private void btnNegDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNegDelClienteActionPerformed
+        // TODO add your handling code here:
+        btnConfDelCliente.setVisible(false);
+        btnNegDelCliente.setVisible(false);
+        btnDeleteCliente.setVisible(true);
+    }//GEN-LAST:event_btnNegDelClienteActionPerformed
+
+    private void btnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClienteActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Cliente> serv = new ArrayList<Cliente>();
+        Cliente servFunc = new Cliente();
+        String nome = txtNomeCadClient.getText();
+        String cpf = txtCadClienteCpf.getText();
+        String tel = txtCadClienteTelefone.getText();
+        String email = txtCadClienteEmail.getText();
+        String ender = txtCadClienteEndereco.getText();
+        String nasc = txtCadClienteNasc.getText();
+        String sex = txtCadClienteTipo.getText();
+        String civil = txtCadClienteEstCivil.getText();
+        Boolean ativado = BtnTglSituacao.isSelected();
+        serv=servFunc.ler();
+        
+        if (btnAltClient.isSelected()){
+            for (Cliente obj :  serv) {
+                if (obj.cpf.equals(cpf)){
+                    obj.nome=nome;
+                    obj.cpf=cpf;
+                    obj.telefone=tel;
+                    obj.email=email;
+                    obj.endereco=ender;
+                    obj.nasc=nasc;
+                    obj.sexo=sex;
+                    obj.civil=civil;
+                    obj.ativado=ativado;
+                    servFunc.gravar(serv);
+                    txtNomeCadClient.setText("|");
+                    txtCadClienteCpf.setText("|");
+                    txtCadClienteTelefone.setText("|");
+                    txtCadClienteEmail.setText("|");
+                    txtCadClienteEndereco.setText("|");
+                    txtCadClienteNasc.setText("|");
+                    txtCadClienteTipo.setText("|");
+                    txtCadClienteEstCivil.setText("|");
+                    BtnTglSituacao.setSelected(false);
+                    lblCadClienteErro.setText("Alterado com sucesso");
+                }
+            }
+        } else {
+            int t=0;
+            if (serv.size()==0){
+                    if (t==0){
+                    serv.add(new Cliente(nome,cpf,sex,email,tel,nasc,ender,civil,ativado));
+                    servFunc.gravar(serv);
+                    txtNomeCadClient.setText("|");
+                    txtCadClienteCpf.setText("|");
+                    txtCadClienteTelefone.setText("|");
+                    txtCadClienteEmail.setText("|");
+                    txtCadClienteEndereco.setText("|");
+                    txtCadClienteNasc.setText("|");
+                    txtCadClienteTipo.setText("|");
+                    txtCadClienteEstCivil.setText("|");
+                    BtnTglSituacao.setSelected(false);
+                    lblCadClienteErro.setText("Cadastrado com sucesso");
+                }
+            }else{
+                for (Cliente obj :  serv) {
+                    if (obj.cpf.equals(cpf)){
+                        t++;
+                        lblErroServ.setText("Cliente ja cadastrado.por favor altere-o.");
+                    } else{
+                        if (t==0){
+                        
+                        serv.add(new Cliente(nome,cpf,sex,email,tel,nasc,ender,civil,ativado));
+                        servFunc.gravar(serv);
+                        txtNomeCadClient.setText("|");
+                        txtCadClienteCpf.setText("|");
+                        txtCadClienteTelefone.setText("|");
+                        txtCadClienteEmail.setText("|");
+                        txtCadClienteEndereco.setText("|");
+                        txtCadClienteNasc.setText("|");
+                        txtCadClienteTipo.setText("|");
+                        txtCadClienteEstCivil.setText("|");
+                        BtnTglSituacao.setSelected(false);
+                        lblCadClienteErro.setText("Cadastrado com sucesso");
+                        }
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_btnCadastroClienteActionPerformed
+
+    private void btnConfDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfDelClienteActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Cliente> serv = new ArrayList<Cliente>();
+        Cliente servFunc = new Cliente();
+        String nome = txtNomeCadClient.getText();
+        String cpf = txtCadClienteCpf.getText();
+        String tel = txtCadClienteTelefone.getText();
+        String email = txtCadClienteEmail.getText();
+        String ender = txtCadClienteEndereco.getText();
+        String nasc = txtCadClienteNasc.getText();
+        String sex = txtCadClienteTipo.getText();
+        String civil = txtCadClienteEstCivil.getText();
+        Boolean ativado = BtnTglSituacao.isSelected();
+        serv=servFunc.ler();
+        for (Cliente obj :  serv) {
+            if (obj.cpf.equals(cpf)){
+                serv.remove(obj);
+                servFunc.gravar(serv);
+                txtNomeCadClient.setText("|");
+                txtCadClienteCpf.setText("|");
+                txtCadClienteTelefone.setText("|");
+                txtCadClienteEmail.setText("|");
+                txtCadClienteEndereco.setText("|");
+                txtCadClienteNasc.setText("|");
+                txtCadClienteTipo.setText("|");
+                txtCadClienteEstCivil.setText("|");
+                BtnTglSituacao.setSelected(false);
+                lblCadClienteErro.setText("Deletado com sucesso");
+            }
+        }
+        /*Outro metetodo para deletar um cliente especifico
+        for (int i = 0; i < serv.size(); ++i) {
+            Cliente obj = (Cliente) serv.get(i);
+            if (obj.cpf.equals(cpf)){
+                serv.remove(i);
+                txtNomeCadClient.setText(" ");
+                txtCadClienteCpf.setText(" ");
+                txtCadClienteTelefone.setText(" ");
+                txtCadClienteEmail.setText(" ");
+                txtCadClienteEndereco.setText(" ");
+                txtCadClienteNasc.setText(" ");
+                txtCadClienteTipo.setText(" ");
+                txtCadClienteEstCivil.setText(" ");
+                BtnTglSituacao.setSelected(false);
+                lblCadClienteErro.setText("Deletado com sucesso");
+            }
+        }
+        */
+        
+    }//GEN-LAST:event_btnConfDelClienteActionPerformed
     /*public static void FuncErroBanco(String erro){
         lblVerificaBanco.setText(erro);
     }*/
@@ -1799,7 +2033,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel Funcionarios;
     private javax.swing.JButton btnAgendaRelato;
     private javax.swing.JToggleButton btnAltAtend;
-    private javax.swing.JToggleButton btnAltClient;
+    public javax.swing.JToggleButton btnAltClient;
     private javax.swing.JToggleButton btnAltFunc;
     private javax.swing.JToggleButton btnAltHor;
     private javax.swing.JButton btnAltRemarcar;
@@ -1815,14 +2049,14 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton btnCadFunc;
     private javax.swing.JButton btnCadRemarcar;
     private javax.swing.JButton btnCadastroAtendimento;
-    private javax.swing.JButton btnCadastroCliente;
+    public javax.swing.JButton btnCadastroCliente;
     private javax.swing.JButton btnCadastroServico;
     private javax.swing.JButton btnClienteRelato;
     private javax.swing.JButton btnClienteSitRelato;
     private javax.swing.JButton btnConfAltRemarcar;
-    private javax.swing.JButton btnConfDelCliente;
+    public javax.swing.JButton btnConfDelCliente;
     private javax.swing.JButton btnConfDelFunc;
-    private javax.swing.JButton btnDeleteCliente;
+    public javax.swing.JButton btnDeleteCliente;
     private javax.swing.JButton btnDeleteFuncionario;
     private javax.swing.JButton btnFuncRelato;
     private javax.swing.JButton btnMenuAgenda;
@@ -1834,11 +2068,12 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton btnMenuRemarcar;
     private javax.swing.JButton btnMenuServico;
     private javax.swing.JButton btnNegAltRemarcar;
-    private javax.swing.JButton btnNegDelCliente;
+    public javax.swing.JButton btnNegDelCliente;
     private javax.swing.JButton btnNegDelFunc;
     private javax.swing.JButton btnRelatoPorCleinte;
     private javax.swing.JButton btnServRelato;
     private javax.swing.JButton btnVerfAgenda;
+    private javax.swing.JButton btnVerfClient;
     private javax.swing.JButton btnVerfClienteRermarcar;
     private javax.swing.JButton btnVerfMarcar;
     private javax.swing.JButton btnVerfServ;
@@ -1929,7 +2164,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextArea txtDescServ;
     private javax.swing.JTextField txtHorarioAtendimento;
     private javax.swing.JTextField txtHorarioMarcar;
-    private javax.swing.JTextField txtNomeCadastroCliente;
+    private javax.swing.JTextField txtNomeCadClient;
     private javax.swing.JTextField txtNomeServ;
     private javax.swing.JTextField txtRemarcarNomeCliente;
     // End of variables declaration//GEN-END:variables
