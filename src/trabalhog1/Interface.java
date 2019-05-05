@@ -137,9 +137,9 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         btnBackAgenda = new javax.swing.JButton();
         lblDataAgenda = new javax.swing.JLabel();
         txtDataAgenda = new javax.swing.JTextField();
-        panelAgenda = new javax.swing.JScrollPane();
-        listAgenda = new javax.swing.JList();
         btnVerfAgenda = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAgenDia = new javax.swing.JTextArea();
         marcarhorario = new javax.swing.JPanel();
         lblTituloMarcar = new javax.swing.JLabel();
         btnBackMarcar = new javax.swing.JButton();
@@ -228,7 +228,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             }
         });
 
-        btnMenuAgenda.setText("Agenda");
+        btnMenuAgenda.setText("Agenda do dia");
         btnMenuAgenda.setToolTipText("Ir para o menu de agenda");
         btnMenuAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1073,14 +1073,16 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             }
         });
 
-        listAgenda.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        panelAgenda.setViewportView(listAgenda);
-
         btnVerfAgenda.setText("Verificar agenda");
+        btnVerfAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerfAgendaActionPerformed(evt);
+            }
+        });
+
+        txtAgenDia.setColumns(20);
+        txtAgenDia.setRows(5);
+        jScrollPane1.setViewportView(txtAgenDia);
 
         javax.swing.GroupLayout AgendaLayout = new javax.swing.GroupLayout(Agenda);
         Agenda.setLayout(AgendaLayout);
@@ -1088,23 +1090,21 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             AgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AgendaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(AgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelAgenda)
-                    .addGroup(AgendaLayout.createSequentialGroup()
-                        .addGroup(AgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AgendaLayout.createSequentialGroup()
-                                .addComponent(btnBackAgenda)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblTituloAgenda))
-                            .addGroup(AgendaLayout.createSequentialGroup()
-                                .addComponent(lblDataAgenda)
-                                .addGap(8, 8, 8)
-                                .addComponent(txtDataAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(AgendaLayout.createSequentialGroup()
-                                .addGap(87, 87, 87)
-                                .addComponent(btnVerfAgenda)))
-                        .addGap(0, 2, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGroup(AgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1)
+                    .addGroup(AgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(AgendaLayout.createSequentialGroup()
+                            .addComponent(btnBackAgenda)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblTituloAgenda))
+                        .addGroup(AgendaLayout.createSequentialGroup()
+                            .addComponent(lblDataAgenda)
+                            .addGap(8, 8, 8)
+                            .addComponent(txtDataAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(AgendaLayout.createSequentialGroup()
+                            .addGap(87, 87, 87)
+                            .addComponent(btnVerfAgenda))))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         AgendaLayout.setVerticalGroup(
             AgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1123,7 +1123,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVerfAgenda)
                 .addGap(18, 18, 18)
-                .addComponent(panelAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2234,7 +2234,60 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     }//GEN-LAST:event_btnConfDelFuncActionPerformed
 
     private void btnVerfAtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfAtendActionPerformed
-
+        ArrayList<Atendimento> AtendArray = new ArrayList<Atendimento>();
+        Atendimento AtendFunc = new Atendimento();
+        AtendArray = AtendFunc.ler();
+        ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
+        Cliente FuncCliente = new Cliente();
+        ClienteArray=FuncCliente.ler();
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String data=txtDataAtendimento.getText();
+        String hora=txtHorarioAtendimento.getText();
+        int t2=0;
+        if  (AtendArray.size()>0){
+            for (Atendimento obj :  AtendArray) {
+                if (obj.data.equals(data) && obj.horario.equals(hora)){
+                    t2++;
+                    lblAtend.setText("Cadastro encontrado!");
+                    txtDataAtendimento.setText(obj.data);
+                    txtHorarioAtendimento.setText(obj.horario);
+                    txtDescAtendmiento.setText(obj.desc);
+                    switch(obj.status){
+                        case "Agendado":
+                            listStatusAtendmiento.setSelectedIndex(0);
+                            break;
+                        case "Cancelado":
+                            listStatusAtendmiento.setSelectedIndex(1);
+                            break;
+                        case "Realizado":
+                            listStatusAtendmiento.setSelectedIndex(2);
+                            break;
+                    }
+                    int t3=0;
+                    for (Funcionario obj2 :  FuncArray) {
+                        if (obj.func.cpf.equals(obj2.cpf)){
+                            listFuncDispo.setSelectedIndex(t3);
+                        } else{
+                            t3++;
+                        }
+                    }
+                    t3=0;
+                    for (Cliente obj2 :  ClienteArray) {
+                        if (obj.cliente.cpf.equals(obj2.cpf)){
+                            listClienteDispo.setSelectedIndex(t3);
+                        } else{
+                            t3++;
+                        }
+                    }
+                    t3=0;
+                }
+            }
+        }
+        if (t2==0){
+            lblAtend.setText("Cadastro não encontrado!");
+        }
     }//GEN-LAST:event_btnVerfAtendActionPerformed
 
     private void btnCadastroAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAtendimentoActionPerformed
@@ -2353,10 +2406,40 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 tempS+="Cliente: "+obj.cliente.nome+"\n";
                 tempS+="Status: "+obj.status+"\n";
                 tempS+="Descrição: "+obj.desc+"\n";
+            } else if (dataVerf.equals("") || dataVerf.equals("DD/MM/AA")){
+                tempS+="\n*****************************\n";
+                tempS+="data: "+obj.data+"\n";
+                tempS+="hora: "+obj.horario+"\n";
+                tempS+="Funcionario: "+obj.func.nome+"\n";
+                tempS+="Cliente: "+obj.cliente.nome+"\n";
+                tempS+="Status: "+obj.status+"\n";
+                tempS+="Descrição: "+obj.desc+"\n";
             }
         }
+        txtVerfAgd.setText("");
         txtAreaRelato.setText(tempS);
     }//GEN-LAST:event_btnVerfAgdActionPerformed
+
+    private void btnVerfAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfAgendaActionPerformed
+         // TODO add your handling code here:
+        String dataVerf=txtDataAgenda.getText();
+        ArrayList<Atendimento> AtendArray = new ArrayList<Atendimento>();
+        Atendimento AtendFunc = new Atendimento();
+        AtendArray = AtendFunc.ler();
+        String tempS="";
+        for (Atendimento obj :  AtendArray){
+            if (obj.data.equals(dataVerf)){
+                tempS+="\n*****************************\n";
+                tempS+="data: "+obj.data+"\n";
+                tempS+="hora: "+obj.horario+"\n";
+                tempS+="Funcionario: "+obj.func.nome+"\n";
+                tempS+="Cliente: "+obj.cliente.nome+"\n";
+                tempS+="Status: "+obj.status+"\n";
+                tempS+="Descrição: "+obj.desc+"\n";
+            }
+        }
+        txtAgenDia.setText(tempS);
+    }//GEN-LAST:event_btnVerfAgendaActionPerformed
     /*public static void FuncErroBanco(String erro){
         lblVerificaBanco.setText(erro);
     }*/
@@ -2454,6 +2537,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JButton btnVerfMarcar;
     private javax.swing.JButton btnVerfServ;
     private javax.swing.JScrollPane jPanelServ;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jpanelListaFuncAtendmiento;
     private javax.swing.JLabel lblAltRemarcar;
     private javax.swing.JLabel lblAtend;
@@ -2502,7 +2586,6 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JLabel lblTituloRemarcar;
     private javax.swing.JLabel lblTituloServico;
     public static javax.swing.JLabel lblVerificaBanco;
-    private javax.swing.JList listAgenda;
     private javax.swing.JList<String> listClienteDispHor;
     private javax.swing.JList<String> listClienteDispo;
     private javax.swing.JList<String> listFuncDispo;
@@ -2512,7 +2595,6 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JList listStatusAtendmiento;
     private javax.swing.JPanel marcarhorario;
     private javax.swing.JPanel menuPrincipal;
-    private javax.swing.JScrollPane panelAgenda;
     private javax.swing.JScrollPane panelFuncRemarcar;
     private javax.swing.JScrollPane panelHorarioRemarcar;
     private javax.swing.JScrollPane panelMarcar;
@@ -2522,6 +2604,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JPanel relatorios;
     private javax.swing.JPanel remarcarhorario;
     private javax.swing.JPanel servicos;
+    private javax.swing.JTextArea txtAgenDia;
     private javax.swing.JTextArea txtAreaRelato;
     private javax.swing.JTextField txtCadClienteCpf;
     private javax.swing.JTextField txtCadClienteEmail;
