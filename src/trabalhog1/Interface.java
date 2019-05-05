@@ -146,33 +146,32 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         lblDataMarcar = new javax.swing.JLabel();
         txtDataMarcar = new javax.swing.JTextField();
         panelMarcar = new javax.swing.JScrollPane();
-        listMarcar = new javax.swing.JList();
+        listMarcFunc = new javax.swing.JList();
         txtHorarioMarcar = new javax.swing.JTextField();
         lblHorarioMarcar = new javax.swing.JLabel();
         btnVerfMarcar = new javax.swing.JButton();
         lblFuncMarcar = new javax.swing.JLabel();
-        BtnMarcar2 = new javax.swing.JButton();
-        listClienteDispHor = new javax.swing.JList<>();
+        BtnCadMarcar = new javax.swing.JButton();
+        listMarcCliente = new javax.swing.JList<>();
         lblClientHor = new javax.swing.JLabel();
         btnAltHor = new javax.swing.JToggleButton();
+        lblMarc = new javax.swing.JLabel();
+        btnVerfHoraDisp = new javax.swing.JButton();
         remarcarhorario = new javax.swing.JPanel();
         lblTituloRemarcar = new javax.swing.JLabel();
         btnBackRemarcar = new javax.swing.JButton();
-        lblRemarcarNomeCliente = new javax.swing.JLabel();
-        txtRemarcarNomeCliente = new javax.swing.JTextField();
         panelFuncRemarcar = new javax.swing.JScrollPane();
-        listFuncRemarcar = new javax.swing.JList();
-        lblFuncRemarcar = new javax.swing.JLabel();
-        lblHorarioRemarcar = new javax.swing.JLabel();
-        panelHorarioRemarcar = new javax.swing.JScrollPane();
-        listHorarioRemarcar = new javax.swing.JList();
-        lblAltRemarcar = new javax.swing.JLabel();
-        btnAltRemarcar = new javax.swing.JButton();
-        btnConfAltRemarcar = new javax.swing.JButton();
-        btnNegAltRemarcar = new javax.swing.JButton();
-        lblErroRemarcar = new javax.swing.JLabel();
-        btnCadRemarcar = new javax.swing.JButton();
-        btnVerfClienteRermarcar = new javax.swing.JButton();
+        listFuncRem = new javax.swing.JList();
+        lblFuncRem = new javax.swing.JLabel();
+        txtHoraRem = new javax.swing.JTextField();
+        lbl1 = new javax.swing.JLabel();
+        lbl2 = new javax.swing.JLabel();
+        txtClienteRem = new javax.swing.JTextField();
+        lblClientRerm = new javax.swing.JLabel();
+        txtDataRem = new javax.swing.JTextField();
+        lblRem = new javax.swing.JLabel();
+        btnVerfRem = new javax.swing.JButton();
+        btnAltRem = new javax.swing.JButton();
         relatorios = new javax.swing.JPanel();
         lblRelato = new javax.swing.JLabel();
         btnClienteRelato = new javax.swing.JButton();
@@ -860,7 +859,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCadFuncEmail)
                     .addComponent(txtCadFuncEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(lblCadFuncErro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -896,7 +895,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             }
         });
 
-        txtDataAtendimento.setText("DD/MM/AA");
+        txtDataAtendimento.setText("DDMMAA");
         txtDataAtendimento.setToolTipText("Data: DD/MM/AA");
         txtDataAtendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -908,7 +907,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
         lblHorarioAtendmiento.setText("Horario");
 
-        txtHorarioAtendimento.setText("HH:MM");
+        txtHorarioAtendimento.setText("HH");
         txtHorarioAtendimento.setToolTipText("Horario: 24H HH/MM");
 
         lblFuncionariosAtendmiento.setText("Funcionarios:");
@@ -1065,7 +1064,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
         lblDataAgenda.setText("Data");
 
-        txtDataAgenda.setText("DD/MM/AA");
+        txtDataAgenda.setText("DDMMAA");
         txtDataAgenda.setToolTipText("Data: 15/15/15");
         txtDataAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1140,7 +1139,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
         lblDataMarcar.setText("Data");
 
-        txtDataMarcar.setText("DD/MM/AA");
+        txtDataMarcar.setText("DDMMAA");
         txtDataMarcar.setToolTipText("Data: 15/15/15");
         txtDataMarcar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1148,13 +1147,16 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             }
         });
 
-        listMarcar.setModel(new javax.swing.AbstractListModel() {
+        panelMarcar.setBorder(null);
+
+        listMarcFunc.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        panelMarcar.setViewportView(listMarcar);
+        panelMarcar.setViewportView(listMarcFunc);
 
+        txtHorarioMarcar.setText("HH");
         txtHorarioMarcar.setToolTipText("Data: 15/15/15");
         txtHorarioMarcar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1164,13 +1166,23 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
         lblHorarioMarcar.setText("Horario");
 
-        btnVerfMarcar.setText("Verificar Horarios");
+        btnVerfMarcar.setText("Verificar");
+        btnVerfMarcar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerfMarcarActionPerformed(evt);
+            }
+        });
 
         lblFuncMarcar.setText("Funcionarios disponiveis");
 
-        BtnMarcar2.setText("Cadastrar");
+        BtnCadMarcar.setText("Cadastrar");
+        BtnCadMarcar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCadMarcarActionPerformed(evt);
+            }
+        });
 
-        listClienteDispHor.setModel(new javax.swing.AbstractListModel<String>() {
+        listMarcCliente.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
@@ -1180,53 +1192,73 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
         btnAltHor.setText("Alterar");
         btnAltHor.setToolTipText("quando ativado o botao cadastrar fara com que o dados sejam alterados");
+        btnAltHor.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                btnAltHorStateChanged(evt);
+            }
+        });
+        btnAltHor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltHorActionPerformed(evt);
+            }
+        });
+
+        btnVerfHoraDisp.setText("Verificar Horario Disponivel");
+        btnVerfHoraDisp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerfHoraDispActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout marcarhorarioLayout = new javax.swing.GroupLayout(marcarhorario);
         marcarhorario.setLayout(marcarhorarioLayout);
         marcarhorarioLayout.setHorizontalGroup(
             marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(marcarhorarioLayout.createSequentialGroup()
-                .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(marcarhorarioLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, marcarhorarioLayout.createSequentialGroup()
+                .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, marcarhorarioLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMarc, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
                             .addGroup(marcarhorarioLayout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(lblFuncMarcar))
-                            .addGroup(marcarhorarioLayout.createSequentialGroup()
+                                .addComponent(BtnCadMarcar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAltHor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnVerfMarcar))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, marcarhorarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(listMarcCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelMarcar)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, marcarhorarioLayout.createSequentialGroup()
+                        .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, marcarhorarioLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblHorarioMarcar)
                                     .addComponent(btnBackMarcar)
-                                    .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtHorarioMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(marcarhorarioLayout.createSequentialGroup()
+                                        .addGap(66, 66, 66)
+                                        .addComponent(lblTituloMarcar))
+                                    .addGroup(marcarhorarioLayout.createSequentialGroup()
                                         .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(marcarhorarioLayout.createSequentialGroup()
-                                                .addGap(66, 66, 66)
-                                                .addComponent(lblTituloMarcar))
-                                            .addGroup(marcarhorarioLayout.createSequentialGroup()
-                                                .addComponent(lblDataMarcar)
-                                                .addGap(32, 32, 32)
-                                                .addComponent(txtDataMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                            .addGroup(marcarhorarioLayout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(btnVerfMarcar))
-                            .addGroup(marcarhorarioLayout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addComponent(lblClientHor)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(marcarhorarioLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(listClienteDispHor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelMarcar))))
+                                            .addComponent(lblDataMarcar)
+                                            .addComponent(lblHorarioMarcar))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtHorarioMarcar)
+                                            .addComponent(txtDataMarcar, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, marcarhorarioLayout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(lblClientHor))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, marcarhorarioLayout.createSequentialGroup()
+                                .addGap(67, 67, 67)
+                                .addComponent(lblFuncMarcar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(marcarhorarioLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnMarcar2)
-                    .addGroup(marcarhorarioLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(btnAltHor)))
+                .addGap(58, 58, 58)
+                .addComponent(btnVerfHoraDisp)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         marcarhorarioLayout.setVerticalGroup(
@@ -1245,20 +1277,23 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                     .addComponent(txtHorarioMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblHorarioMarcar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVerfMarcar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVerfHoraDisp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblFuncMarcar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelMarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblClientHor, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(listClienteDispHor, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnMarcar2)
+                .addComponent(listMarcCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAltHor)
-                .addGap(60, 60, 60))
+                .addComponent(lblMarc, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(marcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAltHor)
+                    .addComponent(BtnCadMarcar)
+                    .addComponent(btnVerfMarcar))
+                .addGap(31, 31, 31))
         );
 
         lblTituloRemarcar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1272,56 +1307,48 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             }
         });
 
-        lblRemarcarNomeCliente.setText("cliente");
-
-        txtRemarcarNomeCliente.setToolTipText("Nome do cliente");
-        txtRemarcarNomeCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRemarcarNomeClienteActionPerformed(evt);
-            }
-        });
-
-        listFuncRemarcar.setModel(new javax.swing.AbstractListModel() {
+        listFuncRem.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        panelFuncRemarcar.setViewportView(listFuncRemarcar);
+        panelFuncRemarcar.setViewportView(listFuncRem);
 
-        lblFuncRemarcar.setText("Funcionarios disponiveis");
+        lblFuncRem.setText("Funcionarios disponiveis");
 
-        lblHorarioRemarcar.setText("Horarios Disponiveis");
+        txtHoraRem.setText("HH");
 
-        listHorarioRemarcar.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        panelHorarioRemarcar.setViewportView(listHorarioRemarcar);
+        lbl1.setText("Data");
 
-        lblAltRemarcar.setText("Alterar horario");
+        lbl2.setText("Horario");
 
-        btnAltRemarcar.setText("Confirma");
-        btnAltRemarcar.setToolTipText("Confirmar alteração de horario");
-        btnAltRemarcar.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteRem.setEditable(false);
+        txtClienteRem.setText(" ");
+
+        lblClientRerm.setText("Cliente");
+
+        txtDataRem.setText("DDMMAA");
+        txtDataRem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAltRemarcarActionPerformed(evt);
+                txtDataRemActionPerformed(evt);
             }
         });
 
-        btnConfAltRemarcar.setText("Sim");
-        btnConfAltRemarcar.setToolTipText("Confirma a alteração de horaio");
+        lblRem.setText(" ");
 
-        btnNegAltRemarcar.setText("Nao");
-        btnNegAltRemarcar.setToolTipText("Cancela a Alteração de horaio");
+        btnVerfRem.setText("Verificar");
+        btnVerfRem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerfRemActionPerformed(evt);
+            }
+        });
 
-        lblErroRemarcar.setText(" ");
-
-        btnCadRemarcar.setText("Cadastrar");
-        btnCadRemarcar.setToolTipText("Cadastra");
-
-        btnVerfClienteRermarcar.setText("Verificar cliente");
-        btnVerfClienteRermarcar.setToolTipText("Verifica o cliente");
+        btnAltRem.setText("Alterar");
+        btnAltRem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltRemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout remarcarhorarioLayout = new javax.swing.GroupLayout(remarcarhorario);
         remarcarhorario.setLayout(remarcarhorarioLayout);
@@ -1330,49 +1357,48 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             .addGroup(remarcarhorarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(remarcarhorarioLayout.createSequentialGroup()
-                            .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnBackRemarcar)
-                                .addGroup(remarcarhorarioLayout.createSequentialGroup()
-                                    .addGap(66, 66, 66)
-                                    .addComponent(lblTituloRemarcar))
-                                .addGroup(remarcarhorarioLayout.createSequentialGroup()
-                                    .addGap(80, 80, 80)
-                                    .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblFuncRemarcar)
-                                        .addComponent(lblHorarioRemarcar))))
-                            .addGap(122, 122, 122))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, remarcarhorarioLayout.createSequentialGroup()
-                            .addComponent(lblRemarcarNomeCliente)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtRemarcarNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnVerfClienteRermarcar))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(panelHorarioRemarcar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                            .addComponent(panelFuncRemarcar, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(remarcarhorarioLayout.createSequentialGroup()
-                        .addComponent(lblAltRemarcar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, remarcarhorarioLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblErroRemarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(180, 180, 180))
                             .addGroup(remarcarhorarioLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtHoraRem)
+                                    .addComponent(txtDataRem, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)))
+                            .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(remarcarhorarioLayout.createSequentialGroup()
+                                    .addComponent(lblClientRerm)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtClienteRem, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(remarcarhorarioLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(btnCadRemarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(80, 80, 80)
+                                        .addComponent(lblFuncRem))
+                                    .addComponent(panelFuncRemarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(remarcarhorarioLayout.createSequentialGroup()
+                        .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(remarcarhorarioLayout.createSequentialGroup()
+                                .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBackRemarcar)
                                     .addGroup(remarcarhorarioLayout.createSequentialGroup()
-                                        .addComponent(btnAltRemarcar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnConfAltRemarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnNegAltRemarcar)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(66, 66, 66)
+                                        .addComponent(lblTituloRemarcar)))
+                                .addGap(0, 61, Short.MAX_VALUE)))
+                        .addContainerGap())))
+            .addGroup(remarcarhorarioLayout.createSequentialGroup()
+                .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(remarcarhorarioLayout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(btnVerfRem))
+                    .addGroup(remarcarhorarioLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(btnAltRem)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         remarcarhorarioLayout.setVerticalGroup(
             remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1381,30 +1407,29 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 .addComponent(btnBackRemarcar)
                 .addGap(1, 1, 1)
                 .addComponent(lblTituloRemarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRemarcarNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRemarcarNomeCliente)
-                    .addComponent(btnVerfClienteRermarcar))
+                    .addComponent(lbl1)
+                    .addComponent(txtDataRem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblFuncRemarcar)
+                .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtHoraRem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblFuncRem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelFuncRemarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblHorarioRemarcar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelHorarioRemarcar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVerfRem)
+                .addGap(20, 20, 20)
                 .addGroup(remarcarhorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAltRemarcar)
-                    .addComponent(btnAltRemarcar)
-                    .addComponent(btnConfAltRemarcar)
-                    .addComponent(btnNegAltRemarcar))
+                    .addComponent(txtClienteRem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblClientRerm))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblErroRemarcar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadRemarcar)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addComponent(lblRem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAltRem)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         relatorios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1466,7 +1491,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         txtAreaRelato.setRows(5);
         panelRelato.setViewportView(txtAreaRelato);
 
-        txtVerfAgd.setText("DD/MM/AA");
+        txtVerfAgd.setText("DDMMAA");
 
         btnVerfAgd.setText("Verificar");
         btnVerfAgd.addActionListener(new java.awt.event.ActionListener() {
@@ -1482,7 +1507,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             .addGroup(relatoriosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRelato, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                    .addComponent(panelRelato)
                     .addGroup(relatoriosLayout.createSequentialGroup()
                         .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(relatoriosLayout.createSequentialGroup()
@@ -1502,7 +1527,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                                             .addComponent(btnVerfAgd))
                                         .addComponent(btnRelatoPorCleinte, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(btnBackRelato))
-                        .addGap(0, 36, Short.MAX_VALUE)))
+                        .addGap(0, 17, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         relatoriosLayout.setVerticalGroup(
@@ -1549,34 +1574,34 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 .addComponent(Agenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(marcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(remarcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(remarcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(marcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(Agenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(Atendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(remarcarhorario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Funcionarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(relatorios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(remarcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(marcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(Agenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(Atendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(relatorios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
@@ -1720,14 +1745,6 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         menuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnBackRemarcarActionPerformed
 
-    private void txtRemarcarNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRemarcarNomeClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRemarcarNomeClienteActionPerformed
-
-    private void btnAltRemarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltRemarcarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAltRemarcarActionPerformed
-
     private void btnClienteRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteRelatoActionPerformed
         // TODO add your handling code here:
         String temp="";
@@ -1826,12 +1843,41 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         // TODO add your handling code here:
         menuPrincipal.setVisible(false);
         marcarhorario.setVisible(true);
+        ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
+        Cliente FuncCliente = new Cliente();
+        ClienteArray=FuncCliente.ler();
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String [] TempCliente=new String[ClienteArray.size()];
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < ClienteArray.size(); ++i) {
+            Cliente obj = (Cliente) ClienteArray.get(i);
+            TempCliente[i]="Nome: "+obj.nome+" Cpf: "+obj.cpf;
+        }
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]="Nome: "+obj.nome+" Cpf: "+obj.cpf;
+        }
+        listMarcFunc.setListData(TempFunc);
+        listMarcCliente.setListData(TempCliente);
     }//GEN-LAST:event_btnMenuMarcarActionPerformed
 
     private void btnMenuRemarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuRemarcarActionPerformed
         // TODO add your handling code here:
         menuPrincipal.setVisible(false);
         remarcarhorario.setVisible(true);
+        btnAltRem.setVisible(false);        
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]="Nome: "+obj.nome+" Cpf: "+obj.cpf;
+        }
+        listFuncRem.setListData(TempFunc);
+        
     }//GEN-LAST:event_btnMenuRemarcarActionPerformed
 
     private void btnMenuRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuRelatoriosActionPerformed
@@ -2038,7 +2084,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 for (Cliente obj :  serv) {
                     if (obj.cpf.equals(cpf)){
                         t++;
-                        lblErroServ.setText("Cliente ja cadastrado.por favor altere-o.");
+                        lblCadClienteErro.setText("Cliente ja cadastrado.por favor altere-o.");
                     } else{
                         if (t==0){
                         
@@ -2154,7 +2200,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 for (Funcionario obj :  serv) {
                     if (obj.cpf.equals(cpf)){
                         t++;
-                        lblErroServ.setText("Funcionario ja cadastrado.por favor altere-o.");
+                        lblCadFuncErro.setText("Funcionario ja cadastrado.por favor altere-o.");
                     } else{
                         if (t==0){
                         serv.add(new Funcionario(nome,cpf,tel,email));
@@ -2246,9 +2292,22 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         String data=txtDataAtendimento.getText();
         String hora=txtHorarioAtendimento.getText();
         int t2=0;
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]=obj.cpf;
+        }
+        Funcionario Func = new Funcionario();
+        String CpfTemp=TempFunc[listMarcFunc.getSelectedIndex()];
+
+        for (Funcionario obj :  FuncArray) {
+            if (obj.cpf.equals(CpfTemp)){
+                Func=obj;
+            }
+        }
         if  (AtendArray.size()>0){
             for (Atendimento obj :  AtendArray) {
-                if (obj.data.equals(data) && obj.horario.equals(hora)){
+                if (obj.data.equals(data) && obj.horario.equals(hora) && obj.func.cpf.equals(Func.cpf)){
                     t2++;
                     lblAtend.setText("Cadastro encontrado!");
                     txtDataAtendimento.setText(obj.data);
@@ -2346,7 +2405,14 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         }
         if (btnAltAtend.isSelected()){
             for (Atendimento obj: AtendArray){
-                if (obj.data.equals(data) && obj.horario.equals(hora)){
+                int tempHora = Integer.parseInt(hora);
+                int tempHoraDps=tempHora+1;
+                int tempHoraAnt=tempHora-1;
+                String HoraAnt = String.valueOf(tempHoraAnt);
+                String HoraDps = String.valueOf(tempHoraDps);
+                if (((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16)) && 
+                    obj.data.equals(data) && (obj.horario.equals(hora) || obj.horario.equals(HoraAnt) || obj.horario.equals(HoraDps)) 
+                    && obj.func.cpf.equals(Func.cpf)){
                     obj.cliente=Clit;
                     obj.data=data;
                     obj.desc=desc;
@@ -2358,6 +2424,10 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                     txtHorarioAtendimento.setText("HH:MM");
                     txtDescAtendmiento.setText("");
                     lblAtend.setText("Alterado com sucesso");
+                }else if(((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16))){
+                lblAtend.setText("Horario Disponivel");
+                } else {
+                lblAtend.setText("Ofina fora do horario de funcionamento");
                 }
             }
         } else{
@@ -2373,16 +2443,25 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 }
             } else {
                 for (Atendimento obj :  AtendArray){
-                    if (obj.data.equals(data) && obj.horario.equals(hora)){
+                    int tempHora = Integer.parseInt(hora);
+                    int tempHoraDps=tempHora+1;
+                    int tempHoraAnt=tempHora-1;
+                    String HoraAnt = String.valueOf(tempHoraAnt);
+                    String HoraDps = String.valueOf(tempHoraDps);
+                    if (((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16)) && 
+                    obj.data.equals(data) && (obj.horario.equals(hora) || obj.horario.equals(HoraAnt) || obj.horario.equals(HoraDps)) 
+                    && obj.func.cpf.equals(Func.cpf)){
                         t++;
-                        lblErroServ.setText("Atendimento ja cadastrado.por favor altere-o.");
-                    } else {
+                        lblAtend.setText("Horario Ocupado do "+Func.nome);
+                    } else if(((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16))){
                         AtendArray.add(new Atendimento(data,hora,Func,Clit,status,desc));
                         AtendFunc.gravar(AtendArray);
                         txtDataAtendimento.setText("DD/MM/AA");
                         txtHorarioAtendimento.setText("HH:MM");
                         txtDescAtendmiento.setText("");
                         lblAtend.setText("Cadastrado com sucesso");
+                    } else {
+                     lblAtend.setText("Ofina fora do horario de funcionamento");
                     }
                 }
             }
@@ -2406,7 +2485,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 tempS+="Cliente: "+obj.cliente.nome+"\n";
                 tempS+="Status: "+obj.status+"\n";
                 tempS+="Descrição: "+obj.desc+"\n";
-            } else if (dataVerf.equals("") || dataVerf.equals("DD/MM/AA")){
+            } else if (dataVerf.equals("") || dataVerf.equals("DDMMAA")){
                 tempS+="\n*****************************\n";
                 tempS+="data: "+obj.data+"\n";
                 tempS+="hora: "+obj.horario+"\n";
@@ -2440,6 +2519,367 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         }
         txtAgenDia.setText(tempS);
     }//GEN-LAST:event_btnVerfAgendaActionPerformed
+
+    private void btnVerfMarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfMarcarActionPerformed
+        ArrayList<Atendimento> AtendArray = new ArrayList<Atendimento>();
+        Atendimento AtendFunc = new Atendimento();
+        AtendArray = AtendFunc.ler();
+        ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
+        Cliente FuncCliente = new Cliente();
+        ClienteArray=FuncCliente.ler();
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String data=txtDataMarcar.getText();
+        String hora=txtHorarioMarcar.getText();
+        int t2=0;
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]=obj.cpf;
+        }
+        Funcionario Func = new Funcionario();
+        String CpfTemp=TempFunc[listMarcFunc.getSelectedIndex()];
+
+        for (Funcionario obj :  FuncArray) {
+            if (obj.cpf.equals(CpfTemp)){
+                Func=obj;
+            }
+        }
+        if  (AtendArray.size()>0){
+            for (Atendimento obj :  AtendArray) {
+                int tempHora = Integer.parseInt(hora);
+                int tempHoraDps=tempHora+1;
+                int tempHoraAnt=tempHora-1;
+                String HoraAnt = String.valueOf(tempHoraAnt);
+                String HoraDps = String.valueOf(tempHoraDps);
+                if (obj.data.equals(data) && obj.horario.equals(hora) && obj.func.cpf.equals(Func.cpf)){
+                    t2++;
+                    lblMarc.setText("Cadastro encontrado!");
+                    txtDataMarcar.setText(obj.data);
+                    txtHorarioMarcar.setText(obj.horario);
+                    int t3=0;
+                    for (Funcionario obj2 :  FuncArray) {
+                        if (obj.func.cpf.equals(obj2.cpf)){
+                            listFuncDispo.setSelectedIndex(t3);
+                        } else{
+                            t3++;
+                        }
+                    }
+                    t3=0;
+                    for (Cliente obj2 :  ClienteArray) {
+                        if (obj.cliente.cpf.equals(obj2.cpf)){
+                            listClienteDispo.setSelectedIndex(t3);
+                        } else{
+                            t3++;
+                        }
+                    }
+                    t3=0;
+                }
+            }
+        }
+        if (t2==0){
+            lblMarc.setText("Cadastro não encontrado!");
+        }
+    }//GEN-LAST:event_btnVerfMarcarActionPerformed
+
+    private void BtnCadMarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadMarcarActionPerformed
+        ArrayList<Atendimento> AtendArray = new ArrayList<Atendimento>();
+        Atendimento AtendFunc = new Atendimento();
+        AtendArray = AtendFunc.ler();
+        ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
+        Cliente FuncCliente = new Cliente();
+        ClienteArray=FuncCliente.ler();
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String [] TempCliente=new String[ClienteArray.size()];
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < ClienteArray.size(); ++i) {
+            Cliente obj = (Cliente) ClienteArray.get(i);
+            TempCliente[i]=obj.cpf;
+        }
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]=obj.cpf;
+        }
+        Funcionario Func = new Funcionario();
+        String CpfTemp=TempFunc[listMarcFunc.getSelectedIndex()];
+
+        for (Funcionario obj :  FuncArray) {
+            if (obj.cpf.equals(CpfTemp)){
+                Func=obj;
+            }
+        }
+        Cliente Clit = new Cliente();
+        CpfTemp=TempCliente[listMarcCliente.getSelectedIndex()];
+        for (Cliente obj :  ClienteArray) {
+            if (obj.cpf.equals(CpfTemp)){
+                Clit=obj;
+            }
+        }
+        String data=txtDataMarcar.getText();
+        String hora=txtHorarioMarcar.getText();
+        if (btnAltHor.isSelected()){
+            for (Atendimento obj: AtendArray){
+                int tempHora = Integer.parseInt(hora);
+                int tempHoraDps=tempHora+1;
+                int tempHoraAnt=tempHora-1;
+                String HoraAnt = String.valueOf(tempHoraAnt);
+                String HoraDps = String.valueOf(tempHoraDps);
+                if ((tempHora<16&&tempHora<10&&tempHora>14&&tempHora>8) && 
+                    obj.data.equals(data) && (obj.horario.equals(hora) || obj.horario.equals(HoraAnt) || obj.horario.equals(HoraDps)) 
+                    && obj.func.cpf.equals(Func.cpf)){
+                    obj.cliente=Clit;
+                    obj.data=data;
+                    obj.desc="Horario Marcado";
+                    obj.func=Func;
+                    obj.horario=hora;
+                    obj.status="Agendado";
+                    AtendFunc.gravar(AtendArray);
+                    txtDataMarcar.setText("DD/MM/AA");
+                    txtHorarioMarcar.setText("HH:MM");
+                    lblMarc.setText("Alterado com sucesso");
+                    } else if(!((tempHora<8||tempHora>12)||(tempHora<14||tempHora>18))){
+                        lblMarc.setText("Ofina fora do horario de funcionamento");
+                    }
+            }
+        } else{
+            int t=0;
+            if(AtendArray.size()==0){
+                if (t==0){
+                    AtendArray.add(new Atendimento(data,hora,Func,Clit,"Agendado","Horario Marcado"));
+                    AtendFunc.gravar(AtendArray);
+                    txtDataMarcar.setText("DD/MM/AA");
+                    txtHorarioMarcar.setText("HH:MM");
+                    lblMarc.setText("Cadastrado com sucesso");
+                }
+            } else {
+                for (Atendimento obj :  AtendArray){
+                    int tempHora = Integer.parseInt(hora);
+                    int tempHoraDps=tempHora+1;
+                    int tempHoraAnt=tempHora-1;
+                    String HoraAnt = String.valueOf(tempHoraAnt);
+                    String HoraDps = String.valueOf(tempHoraDps);
+                    if (((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16)) && 
+                    obj.data.equals(data) && (obj.horario.equals(hora) || obj.horario.equals(HoraAnt) || obj.horario.equals(HoraDps)) 
+                    && obj.func.cpf.equals(Func.cpf)){
+                        t++;
+                        lblMarc.setText("Horario Ocupado do "+Func.nome);
+                    } else if(((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16))){
+                        AtendArray.add(new Atendimento(data,hora,Func,Clit,"Agendado","Horario Marcado"));
+                        AtendFunc.gravar(AtendArray);
+                        txtDataMarcar.setText("DD/MM/AA");
+                        txtHorarioMarcar.setText("HH:MM");
+                        lblMarc.setText("Cadastrado com sucesso");
+                    } else{
+                        lblMarc.setText("Ofina fora do horario de funcionamento");
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_BtnCadMarcarActionPerformed
+
+    private void btnAltHorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnAltHorStateChanged
+        // TODO add your handling code here:
+        if (btnAltHor.isSelected()){
+            txtDataMarcar.setEditable(false);
+            txtHorarioMarcar.setEditable(false);
+        } else {
+            txtDataMarcar.setEditable(true);
+            txtHorarioMarcar.setEditable(true);
+        }
+    }//GEN-LAST:event_btnAltHorStateChanged
+
+    private void btnVerfHoraDispActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfHoraDispActionPerformed
+         // TODO add your handling code here:
+        ArrayList<Atendimento> AtendArray = new ArrayList<Atendimento>();
+        Atendimento AtendFunc = new Atendimento();
+        AtendArray = AtendFunc.ler();
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]=obj.cpf;
+        }
+        Funcionario Func = new Funcionario();
+        String CpfTemp=TempFunc[listMarcFunc.getSelectedIndex()];
+
+        for (Funcionario obj :  FuncArray) {
+            if (obj.cpf.equals(CpfTemp)){
+                Func=obj;
+            }
+        }
+        String data=txtDataMarcar.getText();
+        String hora=txtHorarioMarcar.getText();
+        for (Atendimento obj :  AtendArray){
+            int tempHora = Integer.parseInt(hora);
+            int tempHoraDps=tempHora+1;
+            int tempHoraAnt=tempHora-1;
+            String HoraAnt = String.valueOf(tempHoraAnt);
+            String HoraDps = String.valueOf(tempHoraDps);
+            if (((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16)) && 
+               obj.data.equals(data) && (obj.horario.equals(hora) || obj.horario.equals(HoraAnt) || obj.horario.equals(HoraDps)) 
+               && obj.func.cpf.equals(Func.cpf)){
+                lblMarc.setText("Horario Ocupado do "+Func.nome);
+            } else if(((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16))){
+                lblMarc.setText("Horario Disponivel");
+            } else {
+                lblMarc.setText("Ofina fora do horario de funcionamento");
+            }
+        }
+    }//GEN-LAST:event_btnVerfHoraDispActionPerformed
+
+    private void txtDataRemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataRemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataRemActionPerformed
+
+    private void btnVerfRemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfRemActionPerformed
+        // TODO add your handling code here:
+        btnAltRem.setVisible(true);
+        ArrayList<Atendimento> AtendArray = new ArrayList<Atendimento>();
+        Atendimento AtendFunc = new Atendimento();
+        AtendArray = AtendFunc.ler();
+        ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
+        Cliente FuncCliente = new Cliente();
+        ClienteArray=FuncCliente.ler();
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String data=txtDataRem.getText();
+        String hora=txtHoraRem.getText();
+        int t2=0;
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]=obj.cpf;
+        }
+        Funcionario Func = new Funcionario();
+        String CpfTemp=TempFunc[listMarcFunc.getSelectedIndex()];
+
+        for (Funcionario obj :  FuncArray) {
+            if (obj.cpf.equals(CpfTemp)){
+                Func=obj;
+            }
+        }
+        
+        if  (AtendArray.size()>0){
+            for (Atendimento obj :  AtendArray) {
+                if (obj.data.equals(data) && obj.horario.equals(hora) && obj.func.cpf.equals(Func.cpf)){
+                    t2++;
+                    lblRem.setText("Cadastro encontrado!");
+                    txtDataMarcar.setText(obj.data);
+                    txtHorarioMarcar.setText(obj.horario);
+                    int t3=0;
+                    for (Funcionario obj2 :  FuncArray) {
+                        if (obj.func.cpf.equals(obj2.cpf)){
+                            listFuncDispo.setSelectedIndex(t3);
+                        } else{
+                            t3++;
+                        }
+                    }
+                    t3=0;
+                    txtClienteRem.setText("Nome: "+obj.cliente.nome+" Cpf:"+obj.cliente.cpf);
+                }
+            }
+        }
+        if (t2==0){
+            lblRem.setText("Cadastro não encontrado!");
+        }
+    }//GEN-LAST:event_btnVerfRemActionPerformed
+
+    private void btnAltHorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltHorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAltHorActionPerformed
+
+    private void btnAltRemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltRemActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Atendimento> AtendArray = new ArrayList<Atendimento>();
+        Atendimento AtendFunc = new Atendimento();
+        AtendArray = AtendFunc.ler();
+        ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
+        Cliente FuncCliente = new Cliente();
+        ClienteArray=FuncCliente.ler();
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]=obj.cpf;
+        }
+        Funcionario Func = new Funcionario();
+        String CpfTemp=TempFunc[listMarcFunc.getSelectedIndex()];
+
+        for (Funcionario obj :  FuncArray) {
+            if (obj.cpf.equals(CpfTemp)){
+                Func=obj;
+            }
+        }
+        String data=txtDataMarcar.getText();
+        String hora=txtHorarioMarcar.getText();
+        for (Atendimento obj: AtendArray){
+            int tempHora = Integer.parseInt(hora);
+            int tempHoraDps=tempHora+1;
+            int tempHoraAnt=tempHora-1;
+            String HoraAnt = String.valueOf(tempHoraAnt);
+            String HoraDps = String.valueOf(tempHoraDps);
+            if (obj.data.equals(data) && (obj.horario.equals(hora) || obj.horario.equals(HoraAnt) || obj.horario.equals(HoraDps)) && obj.func.cpf.equals(Func.cpf)){
+                for (Atendimento obj2: AtendArray){
+                    int tempHora2 = Integer.parseInt(hora);
+                    int tempHoraDps2=tempHora2+1;
+                    int tempHoraAnt2=tempHora2-1;
+                    String HoraAnt2 = String.valueOf(tempHoraAnt2);
+                    String HoraDps2 = String.valueOf(tempHoraDps2);
+                    if ((tempHora<16&&tempHora<10&&tempHora>14&&tempHora>8) && 
+                    obj2.data.equals(data) && (obj2.horario.equals(hora) || obj2.horario.equals(HoraAnt) || obj2.horario.equals(HoraDps)) 
+                    && obj2.func.cpf.equals(Func.cpf)){
+                        obj.data=data;
+                        obj.horario=hora;
+                        AtendFunc.gravar(AtendArray);
+                        txtDataRem.setText("DDMMAA");
+                        txtHoraRem.setText("HH");
+                        lblRem.setText("Alterado com sucesso");
+                    } else if(((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16))){
+                        lblRem.setText("Funcionario Ocupado");
+                    } else {
+                        lblRem.setText("Ofina fora do horario de funcionamento");
+                    }
+                }
+            }
+        }
+        /*
+        String data=txtDataMarcar.getText();
+        String hora=txtHorarioMarcar.getText();
+       
+            for (Atendimento obj: AtendArray){
+                int tempHora = Integer.parseInt(hora);
+                int tempHoraDps=tempHora+1;
+                int tempHoraAnt=tempHora-1;
+                String HoraAnt = String.valueOf(tempHoraAnt);
+                String HoraDps = String.valueOf(tempHoraDps);
+                if ((tempHora<16&&tempHora<10&&tempHora>14&&tempHora>8) && 
+                    obj.data.equals(data) && (obj.horario.equals(hora) || obj.horario.equals(HoraAnt) || obj.horario.equals(HoraDps)) 
+                    && obj.func.cpf.equals(Func.cpf)){
+                    obj.cliente=Clit;
+                    obj.data=data;
+                    obj.desc="Horario Marcado";
+                    obj.func=Func;
+                    obj.horario=hora;
+                    obj.status="Agendado";
+                    AtendFunc.gravar(AtendArray);
+                    txtDataMarcar.setText("DD/MM/AA");
+                    txtHorarioMarcar.setText("HH:MM");
+                    lblMarc.setText("Alterado com sucesso");
+                    } else if(!((tempHora<8||tempHora>12)||(tempHora<14||tempHora>18))){
+                        lblMarc.setText("Ofina fora do horario de funcionamento");
+                    }
+            }
+        }
+        */
+    }//GEN-LAST:event_btnAltRemActionPerformed
     /*public static void FuncErroBanco(String erro){
         lblVerificaBanco.setText(erro);
     }*/
@@ -2483,7 +2923,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Agenda;
     private javax.swing.JPanel Atendimentos;
-    private javax.swing.JButton BtnMarcar2;
+    private javax.swing.JButton BtnCadMarcar;
     private javax.swing.JToggleButton BtnTglSituacao;
     private javax.swing.JPanel Clientes;
     private javax.swing.JPanel Funcionarios;
@@ -2492,7 +2932,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     public javax.swing.JToggleButton btnAltClient;
     private javax.swing.JToggleButton btnAltFunc;
     private javax.swing.JToggleButton btnAltHor;
-    private javax.swing.JButton btnAltRemarcar;
+    private javax.swing.JButton btnAltRem;
     private javax.swing.JToggleButton btnAltServ;
     private javax.swing.JButton btnBackAgenda;
     private javax.swing.JButton btnBackAtendimentos;
@@ -2503,13 +2943,11 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JButton btnBackRemarcar;
     private javax.swing.JButton btnBackServ;
     private javax.swing.JButton btnCadFunc;
-    private javax.swing.JButton btnCadRemarcar;
     private javax.swing.JButton btnCadastroAtendimento;
     public javax.swing.JButton btnCadastroCliente;
     private javax.swing.JButton btnCadastroServico;
     private javax.swing.JButton btnClienteRelato;
     private javax.swing.JButton btnClienteSitRelato;
-    private javax.swing.JButton btnConfAltRemarcar;
     public javax.swing.JButton btnConfDelCliente;
     private javax.swing.JButton btnConfDelFunc;
     public javax.swing.JButton btnDeleteCliente;
@@ -2523,7 +2961,6 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JButton btnMenuRelatorios;
     private javax.swing.JButton btnMenuRemarcar;
     private javax.swing.JButton btnMenuServico;
-    private javax.swing.JButton btnNegAltRemarcar;
     public javax.swing.JButton btnNegDelCliente;
     private javax.swing.JButton btnNegDelFunc;
     private javax.swing.JButton btnRelatoPorCleinte;
@@ -2532,14 +2969,16 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JButton btnVerfAgenda;
     private javax.swing.JButton btnVerfAtend;
     private javax.swing.JButton btnVerfClient;
-    private javax.swing.JButton btnVerfClienteRermarcar;
     private javax.swing.JButton btnVerfFunc;
+    private javax.swing.JButton btnVerfHoraDisp;
     private javax.swing.JButton btnVerfMarcar;
+    private javax.swing.JButton btnVerfRem;
     private javax.swing.JButton btnVerfServ;
     private javax.swing.JScrollPane jPanelServ;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jpanelListaFuncAtendmiento;
-    private javax.swing.JLabel lblAltRemarcar;
+    private javax.swing.JLabel lbl1;
+    private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblAtend;
     private javax.swing.JLabel lblCadClienteCpf;
     private javax.swing.JLabel lblCadClienteEmail;
@@ -2558,25 +2997,25 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JLabel lblCadFuncTel;
     private javax.swing.JLabel lblCastroNomeCliente;
     private javax.swing.JLabel lblClientHor;
+    private javax.swing.JLabel lblClientRerm;
     private javax.swing.JLabel lblDataAgenda;
     private javax.swing.JLabel lblDataAtendmiento;
     private javax.swing.JLabel lblDataMarcar;
     private javax.swing.JLabel lblDelCliente;
     private javax.swing.JLabel lblDescAtendmiento;
     private javax.swing.JLabel lblDescServ;
-    private javax.swing.JLabel lblErroRemarcar;
     public javax.swing.JLabel lblErroServ;
     private javax.swing.JLabel lblFuncMarcar;
-    private javax.swing.JLabel lblFuncRemarcar;
+    private javax.swing.JLabel lblFuncRem;
     private javax.swing.JLabel lblFuncionariosAtendmiento;
     private javax.swing.JLabel lblHorarioAtendmiento;
     private javax.swing.JLabel lblHorarioMarcar;
-    private javax.swing.JLabel lblHorarioRemarcar;
+    private javax.swing.JLabel lblMarc;
     private javax.swing.JLabel lblMenuPrincipal;
     private javax.swing.JLabel lblNomeClienteAtendmiento;
     private javax.swing.JLabel lblNomeServ;
     private javax.swing.JLabel lblRelato;
-    private javax.swing.JLabel lblRemarcarNomeCliente;
+    private javax.swing.JLabel lblRem;
     private javax.swing.JLabel lblStatusAtendmiento;
     private javax.swing.JLabel lblTituloAgenda;
     private javax.swing.JLabel lblTituloAtendimento;
@@ -2586,17 +3025,15 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JLabel lblTituloRemarcar;
     private javax.swing.JLabel lblTituloServico;
     public static javax.swing.JLabel lblVerificaBanco;
-    private javax.swing.JList<String> listClienteDispHor;
     private javax.swing.JList<String> listClienteDispo;
     private javax.swing.JList<String> listFuncDispo;
-    private javax.swing.JList listFuncRemarcar;
-    private javax.swing.JList listHorarioRemarcar;
-    private javax.swing.JList listMarcar;
+    private javax.swing.JList listFuncRem;
+    private javax.swing.JList<String> listMarcCliente;
+    private javax.swing.JList listMarcFunc;
     private javax.swing.JList listStatusAtendmiento;
     private javax.swing.JPanel marcarhorario;
     private javax.swing.JPanel menuPrincipal;
     private javax.swing.JScrollPane panelFuncRemarcar;
-    private javax.swing.JScrollPane panelHorarioRemarcar;
     private javax.swing.JScrollPane panelMarcar;
     private javax.swing.JScrollPane panelRelato;
     private javax.swing.JScrollPane panelStatusAtendimento;
@@ -2617,16 +3054,18 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JTextField txtCadFuncCpf;
     private javax.swing.JTextField txtCadFuncEmail;
     private javax.swing.JTextField txtCadFuncTel;
+    private javax.swing.JTextField txtClienteRem;
     private javax.swing.JTextField txtDataAgenda;
     private javax.swing.JTextField txtDataAtendimento;
     private javax.swing.JTextField txtDataMarcar;
+    private javax.swing.JTextField txtDataRem;
     private javax.swing.JTextArea txtDescAtendmiento;
     private javax.swing.JTextArea txtDescServ;
+    private javax.swing.JTextField txtHoraRem;
     private javax.swing.JTextField txtHorarioAtendimento;
     private javax.swing.JTextField txtHorarioMarcar;
     private javax.swing.JTextField txtNomeCadClient;
     private javax.swing.JTextField txtNomeServ;
-    private javax.swing.JTextField txtRemarcarNomeCliente;
     private javax.swing.JTextField txtVerfAgd;
     // End of variables declaration//GEN-END:variables
 

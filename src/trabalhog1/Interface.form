@@ -38,42 +38,42 @@
               <Component id="Agenda" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="marcarhorario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="remarcarhorario" min="-2" pref="309" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="remarcarhorario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Funcionarios" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="relatorios" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="marcarhorario" alignment="1" min="-2" pref="428" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="Clientes" alignment="0" max="32767" attributes="0"/>
-                          <Component id="servicos" alignment="0" max="32767" attributes="0"/>
-                          <Component id="menuPrincipal" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Agenda" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="Funcionarios" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="remarcarhorario" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="marcarhorario" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="Clientes" alignment="0" max="32767" attributes="0"/>
+                              <Component id="servicos" alignment="0" max="32767" attributes="0"/>
+                              <Component id="menuPrincipal" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="Atendimentos" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="Agenda" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="Atendimentos" alignment="1" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="remarcarhorario" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Funcionarios" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="relatorios" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="relatorios" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="113" max="32767" attributes="0"/>
+              <EmptySpace pref="108" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -904,7 +904,7 @@
                       <Component id="lblCadFuncEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCadFuncEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="116" max="32767" attributes="0"/>
                   <Component id="lblCadFuncErro" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1218,7 +1218,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtDataAtendimento">
           <Properties>
-            <Property name="text" type="java.lang.String" value="DD/MM/AA"/>
+            <Property name="text" type="java.lang.String" value="DDMMAA"/>
             <Property name="toolTipText" type="java.lang.String" value="Data: DD/MM/AA"/>
           </Properties>
           <Events>
@@ -1237,7 +1237,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtHorarioAtendimento">
           <Properties>
-            <Property name="text" type="java.lang.String" value="HH:MM"/>
+            <Property name="text" type="java.lang.String" value="HH"/>
             <Property name="toolTipText" type="java.lang.String" value="Horario: 24H HH/MM"/>
           </Properties>
         </Component>
@@ -1439,7 +1439,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtDataAgenda">
           <Properties>
-            <Property name="text" type="java.lang.String" value="DD/MM/AA"/>
+            <Property name="text" type="java.lang.String" value="DDMMAA"/>
             <Property name="toolTipText" type="java.lang.String" value="Data: 15/15/15"/>
           </Properties>
           <Events>
@@ -1476,65 +1476,68 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="lblFuncMarcar" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lblMarc" pref="256" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
+                                  <Component id="BtnCadMarcar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnAltHor" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnVerfMarcar" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="listMarcCliente" alignment="1" max="32767" attributes="0"/>
+                              <Component id="panelMarcar" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblHorarioMarcar" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnBackMarcar" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Component id="txtHorarioMarcar" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                          <Component id="lblTituloMarcar" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                                  <Component id="lblTituloMarcar" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="lblDataMarcar" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                                  <Component id="txtDataMarcar" min="-2" pref="212" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="lblDataMarcar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblHorarioMarcar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtHorarioMarcar" max="32767" attributes="0"/>
+                                              <Component id="txtDataMarcar" pref="214" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                                  <Component id="btnVerfMarcar" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Component id="lblClientHor" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                                  <Component id="lblClientHor" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Component id="lblFuncMarcar" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="listClienteDispHor" alignment="0" max="32767" attributes="0"/>
-                              <Component id="panelMarcar" max="32767" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="BtnMarcar2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="btnAltHor" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="btnVerfHoraDisp" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -1557,20 +1560,24 @@
                       <Component id="lblHorarioMarcar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnVerfMarcar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnVerfHoraDisp" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblFuncMarcar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="panelMarcar" min="-2" pref="77" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblClientHor" min="-2" pref="14" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="listClienteDispHor" min="-2" pref="61" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="BtnMarcar2" min="-2" max="-2" attributes="0"/>
+                  <Component id="listMarcCliente" min="-2" pref="61" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnAltHor" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="lblMarc" min="-2" pref="13" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnAltHor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BtnCadMarcar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnVerfMarcar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1600,7 +1607,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtDataMarcar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="DD/MM/AA"/>
+            <Property name="text" type="java.lang.String" value="DDMMAA"/>
             <Property name="toolTipText" type="java.lang.String" value="Data: 15/15/15"/>
           </Properties>
           <Events>
@@ -1608,13 +1615,18 @@
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="panelMarcar">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="listMarcar">
+            <Component class="javax.swing.JList" name="listMarcFunc">
               <Properties>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                   <StringArray count="5">
@@ -1631,6 +1643,7 @@
         </Container>
         <Component class="javax.swing.JTextField" name="txtHorarioMarcar">
           <Properties>
+            <Property name="text" type="java.lang.String" value="HH"/>
             <Property name="toolTipText" type="java.lang.String" value="Data: 15/15/15"/>
           </Properties>
           <Events>
@@ -1644,20 +1657,26 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnVerfMarcar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Verificar Horarios"/>
+            <Property name="text" type="java.lang.String" value="Verificar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerfMarcarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblFuncMarcar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Funcionarios disponiveis"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="BtnMarcar2">
+        <Component class="javax.swing.JButton" name="BtnCadMarcar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCadMarcarActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JList" name="listClienteDispHor">
+        <Component class="javax.swing.JList" name="listMarcCliente">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="5">
@@ -1683,6 +1702,20 @@
             <Property name="text" type="java.lang.String" value="Alterar"/>
             <Property name="toolTipText" type="java.lang.String" value="quando ativado o botao cadastrar fara com que o dados sejam alterados"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="btnAltHorStateChanged"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAltHorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblMarc">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVerfHoraDisp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Verificar Horario Disponivel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerfHoraDispActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -1691,68 +1724,70 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnBackRemarcar" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                      <Component id="lblTituloRemarcar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblFuncRemarcar" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblHorarioRemarcar" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblRemarcarNomeCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtRemarcarNomeCliente" min="-2" pref="121" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnVerfClienteRermarcar" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="panelHorarioRemarcar" alignment="0" pref="261" max="32767" attributes="0"/>
-                              <Component id="panelFuncRemarcar" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblAltRemarcar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="lblErroRemarcar" min="-2" pref="113" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbl2" max="32767" attributes="0"/>
+                                      <Component id="lbl1" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtHoraRem" max="32767" attributes="0"/>
+                                      <Component id="txtDataRem" pref="232" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblClientRerm" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtClienteRem" min="-2" pref="248" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                                          <Component id="lblFuncRem" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="panelFuncRemarcar" alignment="0" min="-2" pref="285" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblRem" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                          <Component id="btnCadRemarcar" min="-2" pref="113" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="btnBackRemarcar" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnAltRemarcar" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnConfAltRemarcar" min="-2" pref="51" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnNegAltRemarcar" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                          <Component id="lblTituloRemarcar" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                          <Component id="btnVerfRem" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="btnAltRem" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1763,32 +1798,32 @@
                   <Component id="btnBackRemarcar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                   <Component id="lblTituloRemarcar" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtRemarcarNomeCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblRemarcarNomeCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnVerfClienteRermarcar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDataRem" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblFuncRemarcar" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtHoraRem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblFuncRem" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panelFuncRemarcar" min="-2" pref="56" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblHorarioRemarcar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="panelHorarioRemarcar" min="-2" pref="56" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnVerfRem" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAltRemarcar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAltRemarcar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnConfAltRemarcar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnNegAltRemarcar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtClienteRem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblClientRerm" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblErroRemarcar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnCadRemarcar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="86" max="32767" attributes="0"/>
+                  <Component id="lblRem" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnAltRem" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="133" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1811,19 +1846,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackRemarcarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblRemarcarNomeCliente">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="cliente"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtRemarcarNomeCliente">
-          <Properties>
-            <Property name="toolTipText" type="java.lang.String" value="Nome do cliente"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRemarcarNomeClienteActionPerformed"/>
-          </Events>
-        </Component>
         <Container class="javax.swing.JScrollPane" name="panelFuncRemarcar">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -1831,7 +1853,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="listFuncRemarcar">
+            <Component class="javax.swing.JList" name="listFuncRem">
               <Properties>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                   <StringArray count="5">
@@ -1846,80 +1868,65 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="lblFuncRemarcar">
+        <Component class="javax.swing.JLabel" name="lblFuncRem">
           <Properties>
             <Property name="text" type="java.lang.String" value="Funcionarios disponiveis"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblHorarioRemarcar">
+        <Component class="javax.swing.JTextField" name="txtHoraRem">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Horarios Disponiveis"/>
+            <Property name="text" type="java.lang.String" value="HH"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="panelHorarioRemarcar">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JList" name="listHorarioRemarcar">
-              <Properties>
-                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                    <StringItem index="4" value="Item 5"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JLabel" name="lblAltRemarcar">
+        <Component class="javax.swing.JLabel" name="lbl1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Alterar horario"/>
+            <Property name="text" type="java.lang.String" value="Data"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnAltRemarcar">
+        <Component class="javax.swing.JLabel" name="lbl2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Confirma"/>
-            <Property name="toolTipText" type="java.lang.String" value="Confirmar altera&#xe7;&#xe3;o de horario"/>
+            <Property name="text" type="java.lang.String" value="Horario"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtClienteRem">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value=" "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblClientRerm">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cliente"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtDataRem">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="DDMMAA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAltRemarcarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataRemActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnConfAltRemarcar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sim"/>
-            <Property name="toolTipText" type="java.lang.String" value="Confirma a altera&#xe7;&#xe3;o de horaio"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnNegAltRemarcar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nao"/>
-            <Property name="toolTipText" type="java.lang.String" value="Cancela a Altera&#xe7;&#xe3;o de horaio"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblErroRemarcar">
+        <Component class="javax.swing.JLabel" name="lblRem">
           <Properties>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCadRemarcar">
+        <Component class="javax.swing.JButton" name="btnVerfRem">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar"/>
-            <Property name="toolTipText" type="java.lang.String" value="Cadastra"/>
+            <Property name="text" type="java.lang.String" value="Verificar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerfRemActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnVerfClienteRermarcar">
+        <Component class="javax.swing.JButton" name="btnAltRem">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Verificar cliente"/>
-            <Property name="toolTipText" type="java.lang.String" value="Verifica o cliente"/>
+            <Property name="text" type="java.lang.String" value="Alterar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAltRemActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -1936,7 +1943,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="panelRelato" alignment="0" pref="212" max="32767" attributes="0"/>
+                      <Component id="panelRelato" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -1962,7 +1969,7 @@
                               </Group>
                               <Component id="btnBackRelato" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2088,7 +2095,7 @@
         </Container>
         <Component class="javax.swing.JTextField" name="txtVerfAgd">
           <Properties>
-            <Property name="text" type="java.lang.String" value="DD/MM/AA"/>
+            <Property name="text" type="java.lang.String" value="DDMMAA"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnVerfAgd">
