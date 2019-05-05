@@ -36,25 +36,19 @@ public class Cliente implements Serializable {
   }
   public void gravar(ArrayList<Cliente> pessoa) {
         File arq = new File("cliente.dat");
-        String errol = "Testando";
         try {
           arq.delete(); //Deleta o Arquivo existente
           arq.createNewFile(); // Cria um novo arquivo
           ObjectOutputStream objOutput = new ObjectOutputStream(new FileOutputStream(arq));
           objOutput.writeObject(pessoa);
           objOutput.close();
-          errol= "sucesso";
         } catch(IOException erro) {
             System.out.printf("Erro: %s", erro.getMessage());
-            errol = "Erro: "+erro.getMessage();
-            Interface inter = new Interface();
-            inter.lblCadClienteErro.setText(errol);
         }
         
       }
     
     public ArrayList<Cliente> ler() {
-        String errol = "Testando";
         ArrayList<Cliente> lista = new ArrayList();
         try {
           File arq = new File("cliente.dat");
@@ -65,14 +59,8 @@ public class Cliente implements Serializable {
           }
         } catch(IOException erro1) {
             System.out.printf("Erro: %s", erro1.getMessage());
-            errol = erro1.getMessage();
-            Interface inter = new Interface();
-            inter.lblCadClienteErro.setText(errol);
         } catch(ClassNotFoundException erro2) {
             System.out.printf("Erro: %s", erro2.getMessage());
-            errol = erro2.getMessage();
-            Interface inter = new Interface();
-            inter.lblCadClienteErro.setText(errol);
         }
         
         return(lista);

@@ -7,6 +7,7 @@ package trabalhog1;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.ListModel;
 /**
  *
  * @author bazei
@@ -108,6 +109,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         btnConfDelFunc = new javax.swing.JButton();
         btnNegDelFunc = new javax.swing.JButton();
         btnAltFunc = new javax.swing.JToggleButton();
+        btnVerfFunc = new javax.swing.JButton();
         Atendimentos = new javax.swing.JPanel();
         btnBackAtendimentos = new javax.swing.JButton();
         lblTituloAtendimento = new javax.swing.JLabel();
@@ -118,7 +120,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         txtHorarioAtendimento = new javax.swing.JTextField();
         lblFuncionariosAtendmiento = new javax.swing.JLabel();
         jpanelListaFuncAtendmiento = new javax.swing.JScrollPane();
-        listFuncionariosDispo = new javax.swing.JList<>();
+        listFuncDispo = new javax.swing.JList<>();
         lblNomeClienteAtendmiento = new javax.swing.JLabel();
         lblStatusAtendmiento = new javax.swing.JLabel();
         panelStatusAtendimento = new javax.swing.JScrollPane();
@@ -128,6 +130,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         txtDescAtendmiento = new javax.swing.JTextArea();
         listClienteDispo = new javax.swing.JList<>();
         btnAltAtend = new javax.swing.JToggleButton();
+        btnVerfAtend = new javax.swing.JButton();
         Agenda = new javax.swing.JPanel();
         lblTituloAgenda = new javax.swing.JLabel();
         btnBackAgenda = new javax.swing.JButton();
@@ -689,6 +692,11 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
         btnCadFunc.setText("Cadastrar");
         btnCadFunc.setToolTipText("Cadastra ou verifica os dados acima");
+        btnCadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadFuncActionPerformed(evt);
+            }
+        });
 
         txtCadFunc.setToolTipText("Nome do Funcionario");
         txtCadFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -737,45 +745,34 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
         btnConfDelFunc.setText("Sim");
         btnConfDelFunc.setToolTipText("Tem certeza de deletar o funcinario?");
+        btnConfDelFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfDelFuncActionPerformed(evt);
+            }
+        });
 
         btnNegDelFunc.setText("Nao");
         btnNegDelFunc.setToolTipText("Canceça  o deletamento do Funcionario");
+        btnNegDelFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNegDelFuncActionPerformed(evt);
+            }
+        });
 
         btnAltFunc.setText("Alterar");
         btnAltFunc.setToolTipText("quando ativado o botao cadastrar fara com que o dados sejam alterados");
+
+        btnVerfFunc.setText("Verificar");
+        btnVerfFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerfFuncActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout FuncionariosLayout = new javax.swing.GroupLayout(Funcionarios);
         Funcionarios.setLayout(FuncionariosLayout);
         FuncionariosLayout.setHorizontalGroup(
             FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FuncionariosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FuncionariosLayout.createSequentialGroup()
-                        .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCadFuncTel)
-                            .addComponent(lblCadFuncEmail))
-                        .addGap(13, 13, 13)
-                        .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FuncionariosLayout.createSequentialGroup()
-                                .addComponent(txtCadFuncTel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(FuncionariosLayout.createSequentialGroup()
-                                .addComponent(txtCadFuncEmail)
-                                .addContainerGap())))
-                    .addGroup(FuncionariosLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(btnDeleteFuncionario)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnConfDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
-                        .addComponent(btnNegDelFunc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCadFuncErro, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
-                    .addGroup(FuncionariosLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(lblCadFuncSituacao)
-                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(FuncionariosLayout.createSequentialGroup()
                 .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FuncionariosLayout.createSequentialGroup()
@@ -792,15 +789,50 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                             .addComponent(txtCadFunc)))
                     .addGroup(FuncionariosLayout.createSequentialGroup()
                         .addGap(89, 89, 89)
-                        .addComponent(btnCadFunc))
-                    .addGroup(FuncionariosLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(btnAltFunc)))
+                        .addComponent(btnCadFunc)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FuncionariosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTituloCadFunc)
-                .addGap(22, 22, 22))
+            .addGroup(FuncionariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FuncionariosLayout.createSequentialGroup()
+                        .addComponent(lblCadFuncErro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(FuncionariosLayout.createSequentialGroup()
+                        .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCadFuncTel)
+                            .addComponent(lblCadFuncEmail))
+                        .addGap(13, 13, 13)
+                        .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(FuncionariosLayout.createSequentialGroup()
+                                .addComponent(txtCadFuncTel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(FuncionariosLayout.createSequentialGroup()
+                                .addComponent(txtCadFuncEmail)
+                                .addContainerGap())))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FuncionariosLayout.createSequentialGroup()
+                        .addGap(0, 27, Short.MAX_VALUE)
+                        .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FuncionariosLayout.createSequentialGroup()
+                                .addComponent(lblTituloCadFunc)
+                                .addGap(22, 22, 22))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FuncionariosLayout.createSequentialGroup()
+                                .addComponent(btnVerfFunc)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAltFunc)
+                                .addGap(71, 71, 71))))
+                    .addGroup(FuncionariosLayout.createSequentialGroup()
+                        .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(FuncionariosLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(btnDeleteFuncionario)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnConfDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(btnNegDelFunc))
+                            .addGroup(FuncionariosLayout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(lblCadFuncSituacao)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         FuncionariosLayout.setVerticalGroup(
             FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -826,12 +858,15 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                     .addComponent(lblCadFuncEmail)
                     .addComponent(txtCadFuncEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAltFunc)
+                .addComponent(lblCadFuncErro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAltFunc)
+                    .addComponent(btnVerfFunc))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCadFuncSituacao)
                 .addGap(18, 18, 18)
                 .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCadFuncErro)
                     .addComponent(btnDeleteFuncionario)
                     .addComponent(btnConfDelFunc)
                     .addComponent(btnNegDelFunc))
@@ -852,6 +887,11 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         lblTituloAtendimento.setText("Atendimentos");
 
         btnCadastroAtendimento.setText("Cadastrar");
+        btnCadastroAtendimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroAtendimentoActionPerformed(evt);
+            }
+        });
 
         txtDataAtendimento.setText("DD/MM/AA");
         txtDataAtendimento.setToolTipText("Data: DD/MM/AA");
@@ -867,16 +907,16 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
         txtHorarioAtendimento.setToolTipText("Horario: 24H HH/MM");
 
-        lblFuncionariosAtendmiento.setText("Funcionarios disponiveis");
+        lblFuncionariosAtendmiento.setText("Funcionarios:");
 
-        listFuncionariosDispo.setModel(new javax.swing.AbstractListModel<String>() {
+        listFuncDispo.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jpanelListaFuncAtendmiento.setViewportView(listFuncionariosDispo);
+        jpanelListaFuncAtendmiento.setViewportView(listFuncDispo);
 
-        lblNomeClienteAtendmiento.setText("Nome do cliente");
+        lblNomeClienteAtendmiento.setText("Clientes:");
 
         lblStatusAtendmiento.setText("Status do Atendimento");
 
@@ -904,6 +944,13 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         btnAltAtend.setText("Alterar");
         btnAltAtend.setToolTipText("quando ativado o botao cadastrar fara com que o dados sejam alterados");
 
+        btnVerfAtend.setText("Verificar");
+        btnVerfAtend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerfAtendActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout AtendimentosLayout = new javax.swing.GroupLayout(Atendimentos);
         Atendimentos.setLayout(AtendimentosLayout);
         AtendimentosLayout.setHorizontalGroup(
@@ -911,9 +958,28 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             .addGroup(AtendimentosLayout.createSequentialGroup()
                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AtendimentosLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AtendimentosLayout.createSequentialGroup()
-                                .addContainerGap()
+                                .addComponent(lblDescAtendmiento)
+                                .addGap(18, 18, 18)
+                                .addComponent(panelTxtAtendmiento))
+                            .addGroup(AtendimentosLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(btnCadastroAtendimento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAltAtend)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnVerfAtend)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(AtendimentosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AtendimentosLayout.createSequentialGroup()
+                                .addComponent(lblNomeClienteAtendmiento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(listClienteDispo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(AtendimentosLayout.createSequentialGroup()
                                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnBackAtendimentos)
                                     .addGroup(AtendimentosLayout.createSequentialGroup()
@@ -923,35 +989,19 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                                         .addGap(28, 28, 28)
                                         .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtHorarioAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtDataAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(AtendimentosLayout.createSequentialGroup()
-                                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblFuncionariosAtendmiento)
-                                            .addComponent(lblNomeClienteAtendmiento))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jpanelListaFuncAtendmiento, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                                            .addComponent(listClienteDispo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                            .addComponent(txtDataAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(AtendimentosLayout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(lblTituloAtendimento)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(lblFuncionariosAtendmiento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jpanelListaFuncAtendmiento))))
                     .addGroup(AtendimentosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AtendimentosLayout.createSequentialGroup()
-                                .addComponent(lblDescAtendmiento)
-                                .addGap(18, 18, 18)
-                                .addComponent(panelTxtAtendmiento))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtendimentosLayout.createSequentialGroup()
-                                .addComponent(lblStatusAtendmiento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panelStatusAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(AtendimentosLayout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(btnCadastroAtendimento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAltAtend)))))
+                        .addGap(85, 85, 85)
+                        .addComponent(lblTituloAtendimento))
+                    .addGroup(AtendimentosLayout.createSequentialGroup()
+                        .addComponent(lblStatusAtendmiento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelStatusAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         AtendimentosLayout.setVerticalGroup(
@@ -988,7 +1038,8 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 .addGap(18, 18, 18)
                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastroAtendimento)
-                    .addComponent(btnAltAtend))
+                    .addComponent(btnAltAtend)
+                    .addComponent(btnVerfAtend))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -1428,7 +1479,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                                         .addComponent(btnRelatoPorCleinte, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(lblRelato, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnBackRelato))
-                        .addGap(0, 26, Short.MAX_VALUE)))
+                        .addGap(0, 36, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         relatoriosLayout.setVerticalGroup(
@@ -1508,6 +1559,24 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         // TODO add your handling code here:
         menuPrincipal.setVisible(false);
         Atendimentos.setVisible(true);
+        ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
+        Cliente FuncCliente = new Cliente();
+        ClienteArray=FuncCliente.ler();
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String [] TempCliente=new String[ClienteArray.size()];
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < ClienteArray.size(); ++i) {
+            Cliente obj = (Cliente) ClienteArray.get(i);
+            TempCliente[i]="Nome: "+obj.nome+" Cpf: "+obj.cpf;
+        }
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]="Nome: "+obj.nome+" Cpf: "+obj.cpf;
+        }
+        listFuncDispo.setListData(TempFunc);
+        listClienteDispo.setListData(TempCliente);
     }//GEN-LAST:event_btnMenuAtendimentoActionPerformed
 
     private void btnMenuAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuAgendaActionPerformed
@@ -1579,7 +1648,9 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     }//GEN-LAST:event_txtCadFuncEmailActionPerformed
 
     private void btnDeleteFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteFuncionarioActionPerformed
-        // TODO add your handling code here:
+        btnDeleteFuncionario.setVisible(false);
+        btnConfDelFunc.setVisible(true);
+        btnNegDelFunc.setVisible(true);
     }//GEN-LAST:event_btnDeleteFuncionarioActionPerformed
 
     private void btnBackAtendimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackAtendimentosActionPerformed
@@ -1668,6 +1739,16 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
     private void btnFuncRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncRelatoActionPerformed
         // TODO add your handling code here:
+        String temp="";
+        ArrayList<Funcionario> serv = new ArrayList<Funcionario>();
+        Funcionario servFunc = new Funcionario();
+        serv=servFunc.ler();
+        for (int i = 0; i < serv.size(); ++i) {
+        Funcionario obj = (Funcionario) serv.get(i);
+            temp+="\n**********************************************\n Nome: "+obj.nome+"\n cpf: "+obj.cpf+"\n Tel: "+obj.telefone+"\n Email: "+obj.email;
+        }
+        
+        txtAreaRelato.setText(temp);
     }//GEN-LAST:event_btnFuncRelatoActionPerformed
 
     private void btnDeleteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteClienteActionPerformed
@@ -1694,6 +1775,22 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         // TODO add your handling code here:
         menuPrincipal.setVisible(false);
         Funcionarios.setVisible(true);
+        btnDeleteFuncionario.setVisible(false);
+        btnConfDelFunc.setVisible(false);
+        btnNegDelFunc.setVisible(false);
+        btnCadFunc.setVisible(false);
+        btnAltFunc.setVisible(false);
+        lblCadFuncSituacao.setVisible(false);
+        ArrayList<Funcionario> Cvec = new ArrayList<Funcionario>();
+        Funcionario c1 = new Funcionario();
+        Cvec=c1.ler();
+        if (Cvec.size() == 0){
+            btnCadFunc.setVisible(true);
+            btnVerfFunc.setVisible(false);
+        } else{
+            btnCadFunc.setVisible(false);
+            btnVerfFunc.setVisible(true); 
+        }
     }//GEN-LAST:event_btnMenuFuncionarioActionPerformed
 
     private void btnMenuMarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuMarcarActionPerformed
@@ -1751,8 +1848,8 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                     obj.Nome=nome;
                     obj.Desc=desc;
                     servFunc.gravar(serv);
-                    txtNomeServ.setText(" ");
-                    txtDescServ.setText(" ");
+                    txtNomeServ.setText("|");
+                    txtDescServ.setText("|");
                     lblErroServ.setText("Alterado com sucesso");
                 }
             }
@@ -1762,8 +1859,8 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                     if (t==0){
                     serv.add(new servico(nome,desc));
                     servFunc.gravar(serv);
-                    txtNomeServ.setText(" ");
-                    txtDescServ.setText(" ");
+                    txtNomeServ.setText("|");
+                    txtDescServ.setText("|");
                     lblErroServ.setText("Cadastrado com sucesso");
                 }
             }else{
@@ -1775,8 +1872,8 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                         if (t==0){
                         serv.add(new servico(nome,desc));
                         servFunc.gravar(serv);
-                        txtNomeServ.setText(" ");
-                        txtDescServ.setText(" ");
+                        txtNomeServ.setText("|");
+                        txtDescServ.setText("|");
                         lblErroServ.setText("Cadastrado com sucesso");
                         }
                     }
@@ -1794,7 +1891,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         String desc = txtDescServ.getText();
         serv=servFunc.ler();
         for (servico obj :  serv) {
-            temp+="Nome: "+obj.Nome+"\n Desc: "+obj.Desc+"\n";
+            temp+="\n **********************************\nNome: "+obj.Nome+"\n Desc: "+obj.Desc+"\n";
         }
         txtAreaRelato.setText(temp);
     }//GEN-LAST:event_btnServRelatoActionPerformed
@@ -1822,7 +1919,6 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         System.out.println(Cvec.size());
         if (Cvec.size() > 0){
             for (Cliente obj :  Cvec) {
-                System.out.println(obj.cpf);
                 if (obj.cpf.equals(cpf)){
                     t++;
                     lblCadClienteErro.setText("Cadastro encontrado");
@@ -1984,6 +2080,159 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         */
         
     }//GEN-LAST:event_btnConfDelClienteActionPerformed
+
+    private void btnCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadFuncActionPerformed
+        ArrayList<Funcionario> serv = new ArrayList<Funcionario>();
+        Funcionario servFunc = new Funcionario();
+        String nome = txtCadFunc.getText();
+        String cpf = txtCadFuncCpf.getText();
+        String tel = txtCadFuncTel.getText();
+        String email = txtCadFuncEmail.getText();
+        serv=servFunc.ler();
+        
+        if (btnAltFunc.isSelected()){
+            for (Funcionario obj :  serv) {
+                if (obj.cpf.equals(cpf)){
+                    obj.nome=nome;
+                    obj.cpf=cpf;
+                    obj.telefone=tel;
+                    obj.email=email;
+                    servFunc.gravar(serv);
+                    txtCadFunc.setText("|");
+                    txtCadFuncCpf.setText("|");
+                    txtCadFuncTel.setText("|");
+                    txtCadFuncEmail.setText("|");
+                    lblCadFuncErro.setText("Alterado com sucesso");
+                }
+            }
+        } else {
+            int t=0;
+            if (serv.size()==0){
+                    if (t==0){
+                    serv.add(new Funcionario(nome,cpf,tel,email));
+                    servFunc.gravar(serv);
+                    txtCadFunc.setText("|");
+                    txtCadFuncCpf.setText("|");
+                    txtCadFuncTel.setText("|");
+                    txtCadFuncEmail.setText("|");
+                    lblCadFuncErro.setText("Cadastrado com sucesso");
+                    btnCadFunc.setVisible(false);
+                    btnVerfFunc.setVisible(true);
+                }
+            }else{
+                for (Funcionario obj :  serv) {
+                    if (obj.cpf.equals(cpf)){
+                        t++;
+                        lblErroServ.setText("Funcionario ja cadastrado.por favor altere-o.");
+                    } else{
+                        if (t==0){
+                        serv.add(new Funcionario(nome,cpf,tel,email));
+                        servFunc.gravar(serv);
+                        txtCadFunc.setText("|");
+                        txtCadFuncCpf.setText("|");
+                        txtCadFuncTel.setText("|");
+                        txtCadFuncEmail.setText("|");
+                        lblCadFuncErro.setText("Cadastrado com sucesso");
+                        }
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_btnCadFuncActionPerformed
+
+    private void btnVerfFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfFuncActionPerformed
+        ArrayList<Funcionario> Cvec = new ArrayList<Funcionario>();
+        Funcionario c1 = new Funcionario();
+        String nome = txtCadFunc.getText();
+        String cpf = txtCadFuncCpf.getText();
+        String tel = txtCadFuncTel.getText();
+        String email = txtCadFuncEmail.getText();
+        Cvec=c1.ler();
+        int t=0;
+        System.out.println(Cvec.size());
+        if (Cvec.size() > 0){
+            for (Funcionario obj :  Cvec) {
+                if (obj.cpf.equals(cpf)){
+                    t++;
+                    btnDeleteFuncionario.setVisible(true);
+                    btnCadFunc.setVisible(true);
+                    btnAltFunc.setVisible(true);
+                    lblCadFuncErro.setText("Cadastro encontrado!");
+                    txtCadFunc.setText(obj.nome);
+                    txtCadFuncCpf.setText(obj.cpf);
+                    txtCadFuncTel.setText(obj.telefone);
+                    txtCadFuncEmail.setText(obj.email);
+                }
+            }
+        }
+        if (t==0){
+            lblCadFuncErro.setText("Cadastro Não encontrado");
+            btnCadFunc.setVisible(true);
+            btnAltFunc.setVisible(false);
+            btnDeleteFuncionario.setVisible(false);
+        }
+    }//GEN-LAST:event_btnVerfFuncActionPerformed
+
+    private void btnNegDelFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNegDelFuncActionPerformed
+        btnDeleteFuncionario.setVisible(true);
+        btnNegDelFunc.setVisible(false);
+        btnConfDelFunc.setVisible(false);
+    }//GEN-LAST:event_btnNegDelFuncActionPerformed
+
+    private void btnConfDelFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfDelFuncActionPerformed
+        btnNegDelFunc.setVisible(false);
+        btnConfDelFunc.setVisible(false);
+        ArrayList<Funcionario> serv = new ArrayList<Funcionario>();
+        Funcionario servFunc = new Funcionario();
+        String nome = txtCadFunc.getText();
+        String cpf = txtCadFuncCpf.getText();
+        String tel = txtCadFuncTel.getText();
+        String email = txtCadFuncEmail.getText();
+        serv=servFunc.ler();
+        for (Funcionario obj :  serv) {
+            if (obj.cpf.equals(cpf)){
+                serv.remove(obj);
+                servFunc.gravar(serv);
+                txtCadFunc.setText("|");
+                txtCadFuncCpf.setText("|");
+                txtCadFuncTel.setText("|");
+                txtCadFuncEmail.setText("|");
+                lblCadFuncErro.setText("Deletado com sucesso");
+            }
+        }
+    }//GEN-LAST:event_btnConfDelFuncActionPerformed
+
+    private void btnVerfAtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfAtendActionPerformed
+
+    }//GEN-LAST:event_btnVerfAtendActionPerformed
+
+    private void btnCadastroAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAtendimentoActionPerformed
+        /*
+        menuPrincipal.setVisible(false);
+        Atendimentos.setVisible(true);
+        ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
+        Cliente FuncCliente = new Cliente();
+        ClienteArray=FuncCliente.ler();
+        ArrayList<Funcionario> FuncArray = new ArrayList<Funcionario>();
+        Funcionario FuncFunc = new Funcionario();
+        FuncArray=FuncFunc.ler();
+        String [] TempCliente=new String[ClienteArray.size()];
+        String [] TempFunc=new String[FuncArray.size()];
+        for (int i = 0; i < ClienteArray.size(); ++i) {
+            Cliente obj = (Cliente) ClienteArray.get(i);
+            TempCliente[i]="Nome: "+obj.nome+" Cpf: "+obj.cpf;
+        }
+        for (int i = 0; i < FuncArray.size(); ++i) {
+            Funcionario obj = (Funcionario) FuncArray.get(i);
+            TempFunc[i]="Nome: "+obj.nome+" Cpf: "+obj.cpf;
+        }
+        listFuncDispo.setListData(TempFunc);
+        listClienteDispo.setListData(TempCliente);
+        
+        listFuncDispo.getSelectedIndex();retorna int relacionado a cada valor na lista ex: Varios objetos na lista, se selecionado o primeiro retrona 0
+        */
+        
+    }//GEN-LAST:event_btnCadastroAtendimentoActionPerformed
     /*public static void FuncErroBanco(String erro){
         lblVerificaBanco.setText(erro);
     }*/
@@ -2073,8 +2322,10 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JButton btnRelatoPorCleinte;
     private javax.swing.JButton btnServRelato;
     private javax.swing.JButton btnVerfAgenda;
+    private javax.swing.JButton btnVerfAtend;
     private javax.swing.JButton btnVerfClient;
     private javax.swing.JButton btnVerfClienteRermarcar;
+    private javax.swing.JButton btnVerfFunc;
     private javax.swing.JButton btnVerfMarcar;
     private javax.swing.JButton btnVerfServ;
     private javax.swing.JScrollPane jPanelServ;
@@ -2128,8 +2379,8 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JList listAgenda;
     private javax.swing.JList<String> listClienteDispHor;
     private javax.swing.JList<String> listClienteDispo;
+    private javax.swing.JList<String> listFuncDispo;
     private javax.swing.JList listFuncRemarcar;
-    private javax.swing.JList<String> listFuncionariosDispo;
     private javax.swing.JList listHorarioRemarcar;
     private javax.swing.JList listMarcar;
     private javax.swing.JList listStatusAtendmiento;

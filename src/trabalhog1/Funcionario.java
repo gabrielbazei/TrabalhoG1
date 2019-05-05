@@ -36,28 +36,19 @@ public class Funcionario implements Serializable {
   }
   public void gravar(ArrayList<Funcionario> pessoa) {
         File arq = new File("Funcionario.dat");
-        String errol = "Testando";
         try {
-          //arq.delete(); //Deleta o Arquivo existente
-          //arq.createNewFile(); // Cria um novo arquivo
-          if (!arq.exists()) {
-              arq.createNewFile();
-          }
+          arq.delete(); //Deleta o Arquivo existente
+          arq.createNewFile(); // Cria um novo arquivo
           ObjectOutputStream objOutput = new ObjectOutputStream(new FileOutputStream(arq));
           objOutput.writeObject(pessoa);
           objOutput.close();
-          errol= "sucesso";
         } catch(IOException erro) {
             System.out.printf("Erro: %s", erro.getMessage());
-            errol = "Erro: "+erro.getMessage();
-            Interface inter = new Interface();
-            inter.lblCadFuncErro.setText(errol);
         }
         
       }
     
     public ArrayList<Funcionario> ler() {
-        String errol = "Testando";
         ArrayList<Funcionario> lista = new ArrayList();
         try {
           File arq = new File("Funcionario.dat");
@@ -68,14 +59,8 @@ public class Funcionario implements Serializable {
           }
         } catch(IOException erro1) {
             System.out.printf("Erro: %s", erro1.getMessage());
-            errol = erro1.getMessage();
-            Interface inter = new Interface();
-            inter.lblCadFuncErro.setText(errol);
         } catch(ClassNotFoundException erro2) {
             System.out.printf("Erro: %s", erro2.getMessage());
-            errol = erro2.getMessage();
-            Interface inter = new Interface();
-            inter.lblCadFuncErro.setText(errol);
         }
         
         return(lista);
