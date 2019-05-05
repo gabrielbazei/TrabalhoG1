@@ -131,6 +131,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         listClienteDispo = new javax.swing.JList<>();
         btnAltAtend = new javax.swing.JToggleButton();
         btnVerfAtend = new javax.swing.JButton();
+        lblAtend = new javax.swing.JLabel();
         Agenda = new javax.swing.JPanel();
         lblTituloAgenda = new javax.swing.JLabel();
         btnBackAgenda = new javax.swing.JButton();
@@ -183,6 +184,8 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         btnBackRelato = new javax.swing.JButton();
         panelRelato = new javax.swing.JScrollPane();
         txtAreaRelato = new javax.swing.JTextArea();
+        txtVerfAgd = new javax.swing.JTextField();
+        btnVerfAgd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(350, 576));
@@ -905,6 +908,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
         lblHorarioAtendmiento.setText("Horario");
 
+        txtHorarioAtendimento.setText("HH:MM");
         txtHorarioAtendimento.setToolTipText("Horario: 24H HH/MM");
 
         lblFuncionariosAtendmiento.setText("Funcionarios:");
@@ -1001,7 +1005,10 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                     .addGroup(AtendimentosLayout.createSequentialGroup()
                         .addComponent(lblStatusAtendmiento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelStatusAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panelStatusAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AtendimentosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblAtend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         AtendimentosLayout.setVerticalGroup(
@@ -1035,7 +1042,9 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDescAtendmiento)
                     .addComponent(panelTxtAtendmiento, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(4, 4, 4)
+                .addComponent(lblAtend, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastroAtendimento)
                     .addComponent(btnAltAtend)
@@ -1457,6 +1466,15 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         txtAreaRelato.setRows(5);
         panelRelato.setViewportView(txtAreaRelato);
 
+        txtVerfAgd.setText("DD/MM/AA");
+
+        btnVerfAgd.setText("Verificar");
+        btnVerfAgd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerfAgdActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout relatoriosLayout = new javax.swing.GroupLayout(relatorios);
         relatorios.setLayout(relatoriosLayout);
         relatoriosLayout.setHorizontalGroup(
@@ -1464,7 +1482,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             .addGroup(relatoriosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRelato)
+                    .addComponent(panelRelato, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                     .addGroup(relatoriosLayout.createSequentialGroup()
                         .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(relatoriosLayout.createSequentialGroup()
@@ -1474,10 +1492,15 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                                         .addComponent(btnClienteRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnServRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnFuncRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnClienteSitRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnAgendaRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnRelatoPorCleinte, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblRelato, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btnClienteSitRelato, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                                        .addComponent(btnAgendaRelato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lblRelato, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(relatoriosLayout.createSequentialGroup()
+                                            .addComponent(txtVerfAgd)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btnVerfAgd))
+                                        .addComponent(btnRelatoPorCleinte, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(btnBackRelato))
                         .addGap(0, 36, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -1499,10 +1522,14 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                 .addComponent(btnClienteSitRelato)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAgendaRelato)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(relatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtVerfAgd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVerfAgd, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRelatoPorCleinte)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelRelato)
+                .addComponent(panelRelato, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1533,7 +1560,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(marcarhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1547,9 +1574,9 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                             .addComponent(Atendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(remarcarhorario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Funcionarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(relatorios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(124, Short.MAX_VALUE))
+                            .addComponent(Funcionarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(relatorios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         pack();
@@ -1729,6 +1756,8 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
     private void btnAgendaRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendaRelatoActionPerformed
         // TODO add your handling code here:
+        txtVerfAgd.setVisible(true);
+        btnVerfAgd.setVisible(true);
     }//GEN-LAST:event_btnAgendaRelatoActionPerformed
 
     private void btnBackRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackRelatoActionPerformed
@@ -1809,6 +1838,8 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         // TODO add your handling code here:
         menuPrincipal.setVisible(false);
         relatorios.setVisible(true);
+        txtVerfAgd.setVisible(false);
+        btnVerfAgd.setVisible(false);
     }//GEN-LAST:event_btnMenuRelatoriosActionPerformed
 
     private void btnVerfServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfServActionPerformed
@@ -2208,8 +2239,11 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
     private void btnCadastroAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAtendimentoActionPerformed
         /*
-        menuPrincipal.setVisible(false);
-        Atendimentos.setVisible(true);
+        listFuncDispo.getSelectedIndex();retorna int relacionado a cada valor na lista ex: Varios objetos na lista, se selecionado o primeiro retrona 0
+        */
+        ArrayList<Atendimento> AtendArray = new ArrayList<Atendimento>();
+        Atendimento AtendFunc = new Atendimento();
+        AtendArray = AtendFunc.ler();
         ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
         Cliente FuncCliente = new Cliente();
         ClienteArray=FuncCliente.ler();
@@ -2220,19 +2254,109 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         String [] TempFunc=new String[FuncArray.size()];
         for (int i = 0; i < ClienteArray.size(); ++i) {
             Cliente obj = (Cliente) ClienteArray.get(i);
-            TempCliente[i]="Nome: "+obj.nome+" Cpf: "+obj.cpf;
+            TempCliente[i]=obj.cpf;
         }
         for (int i = 0; i < FuncArray.size(); ++i) {
             Funcionario obj = (Funcionario) FuncArray.get(i);
-            TempFunc[i]="Nome: "+obj.nome+" Cpf: "+obj.cpf;
+            TempFunc[i]=obj.cpf;
         }
-        listFuncDispo.setListData(TempFunc);
-        listClienteDispo.setListData(TempCliente);
-        
-        listFuncDispo.getSelectedIndex();retorna int relacionado a cada valor na lista ex: Varios objetos na lista, se selecionado o primeiro retrona 0
-        */
-        
+        Funcionario Func = new Funcionario();
+        String CpfTemp=TempFunc[listFuncDispo.getSelectedIndex()];
+
+        for (Funcionario obj :  FuncArray) {
+            if (obj.cpf.equals(CpfTemp)){
+                Func=obj;
+            }
+        }
+        Cliente Clit = new Cliente();
+        CpfTemp=TempCliente[listClienteDispo.getSelectedIndex()];
+        for (Cliente obj :  ClienteArray) {
+            if (obj.cpf.equals(CpfTemp)){
+                Clit=obj;
+            }
+        }
+        String data=txtDataAtendimento.getText();
+        String hora=txtHorarioAtendimento.getText();
+        String desc=txtDescAtendmiento.getText();
+        int t=listStatusAtendmiento.getSelectedIndex();
+        String status="";
+        switch(t){
+            case 0:
+                status="Agendado";
+                break;
+            case 1:
+                status="Cancelado";
+                break;
+            case 2:
+                status="Realizado";
+                break;
+        }
+        if (btnAltAtend.isSelected()){
+            for (Atendimento obj: AtendArray){
+                if (obj.data.equals(data) && obj.horario.equals(hora)){
+                    obj.cliente=Clit;
+                    obj.data=data;
+                    obj.desc=desc;
+                    obj.func=Func;
+                    obj.horario=hora;
+                    obj.status=status;
+                    AtendFunc.gravar(AtendArray);
+                    txtDataAtendimento.setText("DD/MM/AA");
+                    txtHorarioAtendimento.setText("HH:MM");
+                    txtDescAtendmiento.setText("");
+                    lblAtend.setText("Alterado com sucesso");
+                }
+            }
+        } else{
+            int t2=0;
+            if(AtendArray.size()==0){
+                if (t==0){
+                    AtendArray.add(new Atendimento(data,hora,Func,Clit,status,desc));
+                    AtendFunc.gravar(AtendArray);
+                    txtDataAtendimento.setText("DD/MM/AA");
+                    txtHorarioAtendimento.setText("HH:MM");
+                    txtDescAtendmiento.setText("");
+                    lblAtend.setText("Cadastrado com sucesso");
+                }
+            } else {
+                for (Atendimento obj :  AtendArray){
+                    if (obj.data.equals(data) && obj.horario.equals(hora)){
+                        t++;
+                        lblErroServ.setText("Atendimento ja cadastrado.por favor altere-o.");
+                    } else {
+                        AtendArray.add(new Atendimento(data,hora,Func,Clit,status,desc));
+                        AtendFunc.gravar(AtendArray);
+                        txtDataAtendimento.setText("DD/MM/AA");
+                        txtHorarioAtendimento.setText("HH:MM");
+                        txtDescAtendmiento.setText("");
+                        lblAtend.setText("Cadastrado com sucesso");
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_btnCadastroAtendimentoActionPerformed
+
+    private void btnVerfAgdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerfAgdActionPerformed
+        txtVerfAgd.setVisible(false);
+        btnVerfAgd.setVisible(false);
+        String dataVerf=txtVerfAgd.getText();
+        ArrayList<Atendimento> AtendArray = new ArrayList<Atendimento>();
+        Atendimento AtendFunc = new Atendimento();
+        AtendArray = AtendFunc.ler();
+        String tempS="";
+        for (Atendimento obj :  AtendArray){
+            if (obj.data.equals(dataVerf)){
+                tempS+="\n*****************************\n";
+                tempS+="data: "+obj.data+"\n";
+                tempS+="hora: "+obj.horario+"\n";
+                tempS+="Funcionario: "+obj.func.nome+"\n";
+                tempS+="Cliente: "+obj.cliente.nome+"\n";
+                tempS+="Status: "+obj.status+"\n";
+                tempS+="Descrição: "+obj.desc+"\n";
+            }
+        }
+        txtAreaRelato.setText(tempS);
+    }//GEN-LAST:event_btnVerfAgdActionPerformed
     /*public static void FuncErroBanco(String erro){
         lblVerificaBanco.setText(erro);
     }*/
@@ -2321,6 +2445,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JButton btnNegDelFunc;
     private javax.swing.JButton btnRelatoPorCleinte;
     private javax.swing.JButton btnServRelato;
+    private javax.swing.JButton btnVerfAgd;
     private javax.swing.JButton btnVerfAgenda;
     private javax.swing.JButton btnVerfAtend;
     private javax.swing.JButton btnVerfClient;
@@ -2331,6 +2456,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JScrollPane jPanelServ;
     private javax.swing.JScrollPane jpanelListaFuncAtendmiento;
     private javax.swing.JLabel lblAltRemarcar;
+    private javax.swing.JLabel lblAtend;
     private javax.swing.JLabel lblCadClienteCpf;
     private javax.swing.JLabel lblCadClienteEmail;
     private javax.swing.JLabel lblCadClienteEndereco;
@@ -2418,6 +2544,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
     private javax.swing.JTextField txtNomeCadClient;
     private javax.swing.JTextField txtNomeServ;
     private javax.swing.JTextField txtRemarcarNomeCliente;
+    private javax.swing.JTextField txtVerfAgd;
     // End of variables declaration//GEN-END:variables
 
 }
