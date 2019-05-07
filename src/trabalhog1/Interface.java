@@ -1000,21 +1000,19 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                                 .addComponent(lblNomeClienteAtendmiento)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(listClienteDispo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(AtendimentosLayout.createSequentialGroup()
-                                    .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblDescAtendmiento)
-                                        .addComponent(lblStatusAtendmiento, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(panelStatusAtendimento)
-                                        .addComponent(panelTxtAtendmiento, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
-                                .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAtend, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(AtendimentosLayout.createSequentialGroup()
-                                        .addComponent(lblServAtend)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(listServAtend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addGroup(AtendimentosLayout.createSequentialGroup()
+                                .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblDescAtendmiento)
+                                    .addComponent(lblStatusAtendmiento, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(panelStatusAtendimento)
+                                    .addComponent(panelTxtAtendmiento, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
+                            .addComponent(lblAtend, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AtendimentosLayout.createSequentialGroup()
+                                .addComponent(lblServAtend)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(listServAtend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(27, 27, 27))
                     .addGroup(AtendimentosLayout.createSequentialGroup()
                         .addGroup(AtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1656,10 +1654,9 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(servicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Atendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Agenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2098,7 +2095,6 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         Cvec=c1.ler();
         
         int t=0;
-        System.out.println(Cvec.size());
         if (Cvec.size() > 0){
             for (Cliente obj :  Cvec) {
                 if (obj.cpf.equals(cpf)){
@@ -2133,7 +2129,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
 
     private void btnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClienteActionPerformed
         // TODO add your handling code here:
-        ArrayList<Cliente> serv = new ArrayList<Cliente>();
+        ArrayList<Cliente> ClienteArray = new ArrayList<Cliente>();
         Cliente servFunc = new Cliente();
         String nome = txtNomeCadClient.getText();
         String cpf = txtCadClienteCpf.getText();
@@ -2144,10 +2140,10 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         String sex = txtCadClienteTipo.getText();
         String civil = txtCadClienteEstCivil.getText();
         Boolean ativado = BtnTglSituacao.isSelected();
-        serv=servFunc.ler();
+        ClienteArray=servFunc.ler();
         
         if (btnAltClient.isSelected()){
-            for (Cliente obj :  serv) {
+            for (Cliente obj :  ClienteArray) {
                 if (obj.cpf.equals(cpf)){
                     obj.nome=nome;
                     obj.cpf=cpf;
@@ -2158,7 +2154,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                     obj.sexo=sex;
                     obj.civil=civil;
                     obj.ativado=ativado;
-                    servFunc.gravar(serv);
+                    servFunc.gravar(ClienteArray);
                     txtNomeCadClient.setText("|");
                     txtCadClienteCpf.setText("|");
                     txtCadClienteTelefone.setText("|");
@@ -2173,10 +2169,10 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             }
         } else {
             int t=0;
-            if (serv.size()==0){
+            if (ClienteArray.size()==0){
                     if (t==0){
-                    serv.add(new Cliente(nome,cpf,sex,email,tel,nasc,ender,civil,ativado));
-                    servFunc.gravar(serv);
+                    ClienteArray.add(new Cliente(nome,cpf,sex,email,tel,nasc,ender,civil,ativado));
+                    servFunc.gravar(ClienteArray);
                     txtNomeCadClient.setText("|");
                     txtCadClienteCpf.setText("|");
                     txtCadClienteTelefone.setText("|");
@@ -2189,15 +2185,14 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                     lblCadClienteErro.setText("Cadastrado com sucesso");
                 }
             }else{
-                for (Cliente obj :  serv) {
+                for (Cliente obj :  ClienteArray) {
                     if (obj.cpf.equals(cpf)){
                         t++;
                         lblCadClienteErro.setText("Cliente ja cadastrado.por favor altere-o.");
                     } else{
                         if (t==0){
-                        
-                        serv.add(new Cliente(nome,cpf,sex,email,tel,nasc,ender,civil,ativado));
-                        servFunc.gravar(serv);
+                        ClienteArray.add(new Cliente(nome,cpf,sex,email,tel,nasc,ender,civil,ativado));
+                        servFunc.gravar(ClienteArray);
                         txtNomeCadClient.setText("|");
                         txtCadClienteCpf.setText("|");
                         txtCadClienteTelefone.setText("|");
@@ -2334,7 +2329,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         String email = txtCadFuncEmail.getText();
         Cvec=c1.ler();
         int t=0;
-        System.out.println(Cvec.size());
+        
         if (Cvec.size() > 0){
             for (Funcionario obj :  Cvec) {
                 if (obj.cpf.equals(cpf)){
@@ -2400,17 +2395,17 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         ArrayList<servico> servArray = new ArrayList<servico>();
         servico servFunc = new servico();
         servArray=servFunc.ler();
-        String data=txtDataAgenda.getText();
+        String data=txtDataAtendimento.getText();
         String hora=txtHorarioAtendimento.getText();
         int t2=0;
+        
         String [] TempFunc=new String[FuncArray.size()];
         for (int i = 0; i < FuncArray.size(); ++i) {
             Funcionario obj = (Funcionario) FuncArray.get(i);
             TempFunc[i]=obj.cpf;
         }
         Funcionario Func = new Funcionario();
-        String CpfTemp=TempFunc[listMarcFunc.getSelectedIndex()];
-
+        String CpfTemp=TempFunc[listFuncDispo.getSelectedIndex()];
         for (Funcionario obj :  FuncArray) {
             if (obj.cpf.equals(CpfTemp)){
                 Func=obj;
@@ -2420,8 +2415,6 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             for (Atendimento obj :  AtendArray) {
                 if (obj.data.equals(data) && obj.horario.equals(hora) && obj.func.cpf.equals(Func.cpf)){
                     t2++;
-                    btnCadastroAtendimento.setVisible(true);
-                    btnAltAtend.setVisible(true);
                     lblAtend.setText("Cadastro encontrado!");
                     txtDataAgenda.setText(obj.data);
                     txtHorarioAtendimento.setText(obj.horario);
@@ -2519,11 +2512,9 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         }
         servico serv = new servico();
         CpfTemp=TempServ[listServAtend.getSelectedIndex()];
-        System.out.println("Nome: "+CpfTemp);
         for (servico obj :  ServArray) {
             if (obj.Nome.equals(CpfTemp)){
                 serv=obj;
-                System.out.println("Nome Serv"+obj.Nome);
             }
         }
         String data=txtDataAtendimento.getText();
@@ -2545,12 +2536,9 @@ public class Interface extends javax.swing.JFrame implements Serializable{
         if (btnAltAtend.isSelected()){
             for (Atendimento obj: AtendArray){
                 int tempHora = Integer.parseInt(hora);
-                int tempHoraDps=tempHora+1;
-                int tempHoraAnt=tempHora-1;
-                String HoraAnt = String.valueOf(tempHoraAnt);
-                String HoraDps = String.valueOf(tempHoraDps);
+                
                 if (((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16)) && 
-                    obj.data.equals(data) && (obj.horario.equals(hora) || obj.horario.equals(HoraAnt) || obj.horario.equals(HoraDps)) 
+                    obj.data.equals(data) && obj.horario.equals(hora)
                     && obj.func.cpf.equals(Func.cpf)){
                     obj.cliente=Clit;
                     obj.data=data;
@@ -2565,7 +2553,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                     txtDescAtendmiento.setText("");
                     lblAtend.setText("Alterado com sucesso");
                 }else if(((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16))){
-                lblAtend.setText("Horario Disponivel");
+                //lblAtend.setText("Horario Disponivel");
                 } else {
                 lblAtend.setText("Ofina fora do horario de funcionamento");
                 }
@@ -2574,7 +2562,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             int t2=0;
             if(AtendArray.size()==0){
                 if (t2==0){
-                    AtendArray.add(new Atendimento(data,hora,Func,Clit,status,desc,serv));
+                    AtendArray.add(new Atendimento((AtendArray.size()+1),data,hora,Func,Clit,status,desc,serv));
                     AtendFunc.gravar(AtendArray);
                     txtDataAgenda.setText("DD/MM/AA");
                     txtHorarioAtendimento.setText("HH:MM");
@@ -2594,7 +2582,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                         t++;
                         lblAtend.setText("Horario Ocupado do "+Func.nome);
                     } else if(((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16))){
-                        AtendArray.add(new Atendimento(data,hora,Func,Clit,status,desc,serv));
+                        AtendArray.add(new Atendimento((AtendArray.size()+1),data,hora,Func,Clit,status,desc,serv));
                         AtendFunc.gravar(AtendArray);
                         txtDataAgenda.setText("DD/MM/AA");
                         txtHorarioAtendimento.setText("HH:MM");
@@ -2788,7 +2776,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             TempServ[i]=obj.Nome;
         }
         servico serv = new servico();
-        CpfTemp=TempCliente[listMarcServ.getSelectedIndex()];
+        CpfTemp=TempServ[listMarcServ.getSelectedIndex()];
         if(listMarcServ.isSelectionEmpty()){
             lblMarc.setText("Selecione algo na area de Serviços");
         }
@@ -2828,7 +2816,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             int t=0;
             if(AtendArray.size()==0){
                 if (t==0){
-                    AtendArray.add(new Atendimento(data,hora,Func,Clit,"Agendado","Horario Marcado",serv));
+                    AtendArray.add(new Atendimento((AtendArray.size()+1),data,hora,Func,Clit,"Agendado","Horario Marcado",serv));
                     AtendFunc.gravar(AtendArray);
                     txtDataMarcar.setText("DD/MM/AA");
                     txtHorarioMarcar.setText("HH:MM");
@@ -2847,7 +2835,7 @@ public class Interface extends javax.swing.JFrame implements Serializable{
                         t++;
                         lblMarc.setText("Horario Ocupado do "+Func.nome);
                     } else if(((tempHora>=8&&tempHora<=10)||(tempHora>=14&&tempHora<=16))){
-                        AtendArray.add(new Atendimento(data,hora,Func,Clit,"Agendado","Horario Marcado",serv));
+                        AtendArray.add(new Atendimento((AtendArray.size()+1),data,hora,Func,Clit,"Agendado","Horario Marcado",serv));
                         AtendFunc.gravar(AtendArray);
                         txtDataMarcar.setText("DD/MM/AA");
                         txtHorarioMarcar.setText("HH:MM");
@@ -3086,18 +3074,31 @@ public class Interface extends javax.swing.JFrame implements Serializable{
             Nomes.add(obj.serv.Nome);
         }
         Collections.sort(Nomes);
-        for (String obj: Nomes){
+        System.out.println(Nomes);
+        FormataDatas formatador = new FormataDatas();
+        ArrayList<Date> Datas = new ArrayList<Date>();
+        for (Atendimento obj :  AtendArray){
+            Datas.add(formatador.StringToDate(obj.data));
+        }
+        int i=0;
+        Collections.sort(Datas);
+        System.out.println(Datas);
+        boolean Dup=false;
+        for (Date obj3: Datas){
             for(Atendimento obj2 :  AtendArray){
-                if (obj.equals(obj2.serv.Nome)){
-                    tempS+="\n*****************************\n";
-                    tempS+="Nome do Serviço: "+obj2.serv.Nome+"\n";
-                    tempS+="Descrição do Serviço: "+obj2.serv.Desc+"\n";
-                    tempS+="data: "+obj2.data+"\n";
-                    tempS+="hora: "+obj2.horario+"\n";
-                    tempS+="Funcionario: "+obj2.func.nome+"\n";
-                    tempS+="Cliente: "+obj2.cliente.nome+"\n";
-                    tempS+="Status: "+obj2.status+"\n";
-                    tempS+="Descrição: "+obj2.desc+"\n";
+                for(String obj :  Nomes){
+                    if (obj.equals(obj2.serv.Nome) && obj3.equals(formatador.StringToDate(obj2.data))){
+                        tempS+="\n*****************************\n";
+                        tempS+="Nome do Serviço: "+obj2.serv.Nome+"\n";
+                        tempS+="Descrição do Serviço: "+obj2.serv.Desc+"\n";
+                        tempS+="data: "+obj2.data+"\n";
+                        tempS+="hora: "+obj2.horario+"\n";
+                        tempS+="Funcionario: "+obj2.func.nome+"\n";
+                        tempS+="Cliente: "+obj2.cliente.nome+"\n";
+                        tempS+="Status: "+obj2.status+"\n";
+                        tempS+="Descrição: "+obj2.desc+"\n";
+                        break;
+                    }
                 }
             }
         }

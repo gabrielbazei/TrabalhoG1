@@ -32,7 +32,9 @@ public class Atendimento implements Serializable {
   private int t=0;
   public Atendimento (){
   }
-  public Atendimento(String data, String horario, Funcionario func, Cliente cliente, String status, String desc, servico serv){
+
+  public Atendimento(int cdg,String data, String horario, Funcionario func, Cliente cliente, String status, String desc, servico serv){
+    this.cdg=cdg;
     this.data=data;
     this.horario=horario;
     this.func=func;
@@ -40,8 +42,6 @@ public class Atendimento implements Serializable {
     this.status=status;
     this.desc=desc;
     this.serv=serv;
-    cdg=t;
-    t++;
   }
   public int getCdg(){
       return cdg;
@@ -72,7 +72,7 @@ public class Atendimento implements Serializable {
              lista = (ArrayList<Atendimento>)objInput.readObject();
              objInput.close();
           } else {
-              System.out.println("Arquivo não encontrado");
+              //System.out.println("Arquivo não encontrado");
           }
         } catch(IOException erro1) {
             //System.out.printf("Erro: %s", erro1.getMessage());

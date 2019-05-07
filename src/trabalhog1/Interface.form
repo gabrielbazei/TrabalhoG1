@@ -52,11 +52,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="Clientes" alignment="0" max="32767" attributes="0"/>
-                      <Component id="menuPrincipal" alignment="0" max="32767" attributes="0"/>
-                      <Component id="servicos" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="Clientes" alignment="0" max="32767" attributes="0"/>
+                  <Component id="menuPrincipal" alignment="0" max="32767" attributes="0"/>
+                  <Component id="servicos" alignment="0" max="32767" attributes="0"/>
                   <Component id="Atendimentos" max="32767" attributes="0"/>
                   <Component id="Agenda" min="-2" max="-2" attributes="0"/>
                   <Component id="Funcionarios" min="-2" max="-2" attributes="0"/>
@@ -1081,26 +1079,22 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="listClienteDispo" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="lblDescAtendmiento" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblStatusAtendmiento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="panelStatusAtendimento" max="32767" attributes="0"/>
-                                          <Component id="panelTxtAtendmiento" pref="200" max="32767" attributes="0"/>
-                                      </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lblDescAtendmiento" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblStatusAtendmiento" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblAtend" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblServAtend" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="listServAtend" max="32767" attributes="0"/>
-                                      </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="panelStatusAtendimento" max="32767" attributes="0"/>
+                                      <Component id="panelTxtAtendmiento" pref="200" max="32767" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Component id="lblAtend" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblServAtend" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="listServAtend" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>

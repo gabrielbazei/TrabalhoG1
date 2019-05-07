@@ -43,7 +43,7 @@ public class Cliente implements Serializable {
           objOutput.writeObject(pessoa);
           objOutput.close();
         } catch(IOException erro) {
-            System.out.printf("Erro: %s", erro.getMessage());
+            //System.out.printf("Erro: %s", erro.getMessage());
         }
         
       }
@@ -58,9 +58,9 @@ public class Cliente implements Serializable {
              objInput.close();
           }
         } catch(IOException erro1) {
-            System.out.printf("Erro: %s", erro1.getMessage());
+            //System.out.printf("Erro: %s", erro1.getMessage());
         } catch(ClassNotFoundException erro2) {
-            System.out.printf("Erro: %s", erro2.getMessage());
+            //System.out.printf("Erro: %s", erro2.getMessage());
         }
         
         return(lista);
